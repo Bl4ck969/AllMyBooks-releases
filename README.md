@@ -1,26 +1,46 @@
-# AllMyBooks — Releases
+# AllMyBooks für Windows
 
-Dieses Repository enthaelt **ausschliesslich die gebauten Artefakte** des
-AllMyBooks-Windows-Clients: den Installer, die `latest.yml` fuer die
-Update-Pruefung und die zugehoerige `.blockmap`.
+Die Desktop-App zu deiner AllMyBooks-Bibliothek — als eigenes Fenster statt im Browser-Tab.
 
-**Hier liegt kein Quellcode.** Der Code lebt in einem privaten Repository.
-Dieses oeffentliche Repo existiert nur, weil `electron-updater` die Releases
-ohne Anmeldung lesen koennen muss — andernfalls muesste ein Zugangstoken im
-ausgelieferten Programm stecken.
+**[→ Neueste Version herunterladen](../../releases/latest)**
 
-## Fuer wen ist das?
+## Was sie kann
 
-Der Client ist eine Huelle: er verbindet sich mit einem **eigenen
-AllMyBooks-Server** und fragt beim Start nach dessen Adresse. Ohne einen
-solchen Server und ohne Zugangsdaten laesst sich mit dem Programm nichts
-anfangen.
+- **Eigenes Fenster** für deine Bibliothek, mit gemerkter Größe und Position
+- **Mehrere Server** verwalten und mit einem Klick umschalten — praktisch, wenn du neben dem Hauptserver noch einen zweiten betreibst
+- **Symbol neben der Uhr**: Fenster wegklicken statt beenden, Server wechseln, Einstellungen öffnen
+- **Mit Windows starten**, auf Wunsch direkt minimiert
+- **Hält sich selbst aktuell** — meldet sich, wenn eine neue Version bereitliegt, und fragt, ob sofort oder beim nächsten Beenden
 
-## Installer
+## Installation
 
-Die jeweils neueste Fassung steht unter **Releases**. Der Installer ist
-**nicht signiert** — Windows SmartScreen meldet deshalb beim ersten Start
-„Windows hat Ihren PC geschuetzt". Ueber „Weitere Informationen" →
-„Trotzdem ausfuehren" laesst sich die Installation fortsetzen.
+1. Die `.exe` aus dem neuesten Release herunterladen und starten
+2. Installationsordner wählen und entscheiden, ob ein Startmenü-Eintrag angelegt wird
+3. Beim ersten Start die Adresse deines AllMyBooks-Servers eintragen, zum Beispiel `192.168.178.95:3004`
 
-Eine installierte Fassung haelt sich ueber diese Releases selbst aktuell.
+Die Installation läuft **ohne Administratorrechte** und landet in deinem Benutzerprofil. Updates ebenso — keine Rückfrage von Windows.
+
+### Windows-Warnung beim ersten Start
+
+Die App ist nicht kostenpflichtig signiert. Windows meldet deshalb *„Der Computer wurde durch Windows geschützt"*:
+
+**Weitere Informationen** → **Trotzdem ausführen**
+
+Das ist einmalig pro Installation.
+
+## Voraussetzungen
+
+- Windows 10 oder 11 (64 Bit)
+- Eine laufende **AllMyBooks-Serverinstanz** im Netzwerk, auf die du Zugangsdaten hast
+
+Die App ist die Oberfläche zu deinem eigenen Server — sie bringt keine eigene Datenbank mit und speichert deine Bücher nicht in der Cloud.
+
+## Updates
+
+Die App prüft beim Start und danach stündlich, ob etwas Neues vorliegt, und lädt es im Hintergrund. Erst wenn es fertig ist, wirst du gefragt: **jetzt neu starten** oder **später**.
+
+Bei *später* passiert es beim nächsten Beenden von selbst — oder du stößt es über **Aktualisieren** im Symbol-Menü an. Unter *Einstellungen → Programmversion* siehst du jederzeit, welche Version läuft, und kannst von Hand nach Updates suchen.
+
+## Dieses Repository
+
+Hier liegen die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt.
