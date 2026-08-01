@@ -2,45 +2,105 @@
 
 Die Desktop-App zu deiner AllMyBooks-Bibliothek — als eigenes Fenster statt im Browser-Tab.
 
-**[→ Neueste Version herunterladen](../../releases/latest)**
+Sie kann auf zwei Arten laufen: **eigenständig**, dann bringt sie Server und Datenbank selbst mit und braucht keinen weiteren Rechner. Oder als **Client** zu einem Server, der schon läuft — etwa auf einem NAS. Welche der beiden es sein soll, entscheidest du bei der Installation.
 
-## Was sie kann
+## Download
 
-- **Eigenes Fenster** für deine Bibliothek, mit gemerkter Größe und Position
-- **Mehrere Server** verwalten und mit einem Klick umschalten — praktisch, wenn du neben dem Hauptserver noch einen zweiten betreibst
-- **Symbol neben der Uhr**: Fenster wegklicken statt beenden, Server wechseln, Einstellungen öffnen
-- **Mit Windows starten**, auf Wunsch direkt minimiert
-- **Hält sich selbst aktuell** — meldet sich, wenn eine neue Version bereitliegt, und fragt, ob sofort oder beim nächsten Beenden
+| | |
+|---|---|
+| **[⬇️ Neueste Version](https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest)** | Das willst du normalerweise |
+| [Alle Versionen](https://github.com/Bl4ck969/AllMyBooks-releases/releases) | Ältere Fassungen und die Änderungsnotizen |
 
-## Installation
+Lade die Datei **`AllMyBooks-Setup-<Version>.exe`** herunter. Die beiden anderen Dateien im Release (`.blockmap` und `latest.yml`) braucht die App selbst für ihre Updates — du musst sie nicht anfassen.
 
-1. Die `.exe` aus dem neuesten Release herunterladen und starten
-2. Installationsordner wählen und entscheiden, ob ein Startmenü-Eintrag angelegt wird
-3. Beim ersten Start die Adresse deines AllMyBooks-Servers eintragen, zum Beispiel `192.168.178.95:3004`
+---
 
-Die Installation läuft **ohne Administratorrechte** und landet in deinem Benutzerprofil. Updates ebenso — keine Rückfrage von Windows.
+## Erstinstallation
 
-### Windows-Warnung beim ersten Start
+### 1. Windows-Warnung wegklicken
 
-Die App ist nicht kostenpflichtig signiert. Windows meldet deshalb *„Der Computer wurde durch Windows geschützt"*:
+Die App ist nicht kostenpflichtig signiert. Windows meldet deshalb beim ersten Start des Installers:
 
-**Weitere Informationen** → **Trotzdem ausführen**
+> **Der Computer wurde durch Windows geschützt**
 
-Das ist einmalig pro Installation.
+Klicke auf **Weitere Informationen** und dann auf **Trotzdem ausführen**. Das ist einmalig pro Installation.
 
-## Voraussetzungen
+### 2. Betriebsart wählen
 
-- Windows 10 oder 11 (64 Bit)
-- Eine laufende **AllMyBooks-Serverinstanz** im Netzwerk, auf die du Zugangsdaten hast
+Die erste Seite des Installers stellt die einzige Frage, die du vorher überlegt haben solltest:
 
-Die App ist die Oberfläche zu deinem eigenen Server — sie bringt keine eigene Datenbank mit und speichert deine Bücher nicht in der Cloud.
+**Eigenständig — dieser PC verwaltet die Bücher selbst**
+Bringt Server und Datenbank mit. Es wird kein weiterer Rechner gebraucht. Belegt rund 500 MB mehr Platz. **Das ist die Voreinstellung** und der Weg, der ohne Vorwissen funktioniert.
+
+**Mit einem vorhandenen Server verbinden**
+Für einen Server, der schon läuft — etwa auf einem NAS oder einem anderen PC. Die Adresse wird beim ersten Start abgefragt, du brauchst sie also griffbereit.
+
+> **Diese Frage kommt bewusst vor der Ordnerwahl**, weil der Platzbedarf davon abhängt. Wählst du „Client", werden die Server-Teile **gar nicht erst ausgepackt** — die Installation ist dann deutlich kleiner und schneller.
+
+### 3. Ordner und Startmenü
+
+Danach folgen Installationsordner und die Frage nach einem Startmenü-Eintrag.
+
+Die Installation läuft **ohne Administratorrechte** und landet in deinem Benutzerprofil unter `%LOCALAPPDATA%\Programs`. Updates ebenso — Windows fragt dabei nie nach.
+
+### 4. Erster Start
+
+**Eigenständig:** Beim allerersten Start richtet die App ihre Datenbank ein, das dauert einen Moment. Danach öffnet sich die Bibliothek und führt dich durch die Einrichtung: Benutzername, Passwort und vier Sicherheitsfragen. Der erste angelegte Benutzer wird automatisch Administrator.
+
+**Client:** Trage die Adresse deines Servers ein, zum Beispiel `192.168.178.95:3004`. Die App prüft sie sofort und sagt dir, woran es liegt, wenn dort niemand antwortet. Danach meldest du dich mit deinen gewohnten Zugangsdaten an.
+
+---
 
 ## Updates
 
-Die App prüft beim Start und danach stündlich, ob etwas Neues vorliegt, und lädt es im Hintergrund. Erst wenn es fertig ist, wirst du gefragt: **jetzt neu starten** oder **später**.
+Die App prüft **beim Start und danach stündlich**, ob eine neue Version vorliegt, und lädt sie **im Hintergrund**. Du kannst dabei normal weiterarbeiten. Erst wenn der Download fertig ist, wirst du gefragt:
 
-Bei *später* passiert es beim nächsten Beenden von selbst — oder du stößt es über **Aktualisieren** im Symbol-Menü an. Unter *Einstellungen → Programmversion* siehst du jederzeit, welche Version läuft, und kannst von Hand nach Updates suchen.
+- **Jetzt neu starten** — das Update wird sofort eingespielt, die App startet kurz neu
+- **Später** — das Update bleibt liegen
+
+> ⚠️ **Bei „Später" passiert nichts von selbst — auch nicht beim Beenden.**
+> Du spielst es ein über **„Aktualisieren auf \<Version\>"** im Symbol neben der Uhr, oder über **Einstellungen → Programmversion → Jetzt neu starten und einspielen**.
+>
+> Das ist Absicht: Früher installierte sich das Update beim Beenden von selbst, und damit war die Wahl „Später" wertlos, sobald man das Fenster versehentlich schloss.
+
+Schlägt die Prüfung fehl, bleibt es still — meist fehlt einfach gerade die Internetverbindung. Deine Bibliothek ist davon nicht betroffen, sie läuft über deinen eigenen Server. Unter **Einstellungen → Programmversion** siehst du jederzeit, welche Version läuft, und kannst mit **Nach Update suchen** selbst nachsehen.
+
+### Neu installieren über eine bestehende Installation
+
+Der Installer **fragt die Betriebsart kein zweites Mal** — er merkt sich deine Wahl. Ein versehentlicher Klick kann dir die Betriebsart also nicht umstellen.
+
+---
+
+## Die Bedienung in Kürze
+
+**Symbol neben der Uhr** (Rechtsklick):
+
+| Eintrag | Was er tut |
+|---|---|
+| *Verbunden: \<Name\>* | Zeigt, mit welcher Datenquelle du gerade arbeitest |
+| *Wechseln zu …* | Schaltet auf eine andere Datenquelle um |
+| *Aktualisieren auf …* | Erscheint nur, wenn ein Update bereitliegt |
+| *Fenster zeigen* | Holt das Fenster zurück |
+| *Einstellungen* | Datenquellen, Programm-Verhalten, Version |
+| *Beenden* | Beendet die App wirklich |
+
+**Das Fenster zu klicken beendet die App nicht** — sie läuft neben der Uhr weiter. Zum echten Beenden den Eintrag *Beenden* benutzen.
+
+In den **Einstellungen** verwaltest du unter *Datenquellen* mehrere Server nebeneinander (samt „Dieser PC", falls eigenständig installiert), legst unter *Programm-Verhalten* fest, ob die App mit Windows startet, und siehst unter *Programmversion* den aktuellen Stand.
+
+---
+
+## Voraussetzungen
+
+- **Windows 10 oder 11**, 64 Bit
+- Bei **Client-Installation** zusätzlich: eine laufende AllMyBooks-Serverinstanz im Netzwerk, auf die du Zugangsdaten hast
+
+Bei eigenständiger Installation brauchst du nichts weiter — Server und Datenbank sind mit dabei.
+
+## Wo deine Daten liegen
+
+Unter **`%APPDATA%\AllMyBooks`** — Datenbank, Buchcover, Personenfotos und Sicherungen. Dieser Ordner überlebt jedes Update, und auch eine **Deinstallation lässt ihn stehen**. Wer wirklich alles loswerden will, löscht ihn danach von Hand.
 
 ## Dieses Repository
 
-Hier liegen die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt.
+Hier liegen ausschließlich die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt. Die App holt sich ihre Updates direkt aus dem [Release-Bereich](https://github.com/Bl4ck969/AllMyBooks-releases/releases) dieses Repositories.
