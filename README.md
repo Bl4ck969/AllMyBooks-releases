@@ -108,7 +108,7 @@ Bücher, die beim Import unklar bleiben, landen im Reiter **Unbearbeitet** und w
 
 **Einstellungen → Thalia**, danach **Import → Thalia-Sync**
 
-Holt deine gekauften E-Books samt Cover aus der Tolino-Cloud in die Bibliothek.
+Übernimmt die **Angaben zu** deinen gekauften E-Books — Titel, Autor, ISBN, Cover und Lesefortschritt — aus der Tolino-Cloud in deine Bibliothek. **Die Buchdateien selbst werden nicht heruntergeladen.** Es geht allein darum, dass deine E-Books im Bestand auftauchen, ohne sie von Hand einzutragen. Bitte lies dazu auch den Abschnitt [Rechtliches](#rechtliches).
 
 - **Benutzername** und **Passwort** deines Thalia-Kontos. Das Passwort wird **verschlüsselt** gespeichert und ist danach auch für dich nicht mehr auslesbar — bei Bedarf einfach neu eintragen.
 - **Lesestatus zuordnen zu** — welchem Benutzer die Lese-Ereignisse aus der Cloud gutgeschrieben werden. Nützlich, wenn zwei Personen dieselbe Bibliothek nutzen, aber nur ein Thalia-Konto besteht.
@@ -184,3 +184,23 @@ Unter **`%APPDATA%\AllMyBooks`** — Datenbank, Buchcover, Personenfotos und Sic
 ## Dieses Repository
 
 Hier liegen ausschließlich die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt. Die App holt sich ihre Updates direkt aus dem [Release-Bereich](https://github.com/Bl4ck969/AllMyBooks-releases/releases) dieses Repositories.
+
+---
+
+## Rechtliches
+
+AllMyBooks ist ein **privates Projekt** und steht **in keiner Verbindung zu Thalia, tolino, Google oder einem anderen der genannten Anbieter**. Es wird von ihnen weder herausgegeben noch geprüft oder unterstützt. *Thalia*, *tolino* und die übrigen genannten Namen sind Marken ihrer jeweiligen Inhaber und werden hier ausschließlich genannt, um zu beschreiben, womit die Software zusammenarbeitet.
+
+### Zum Thalia-Abgleich
+
+Der Abgleich meldet sich mit **deinen eigenen Zugangsdaten** an und liest **ausschließlich die Daten deines eigenen Kontos**: Titel, Autor, ISBN, Cover und Lesefortschritt deiner gekauften E-Books.
+
+**Nicht** heruntergeladen werden die Buchdateien. Es wird kein Kopierschutz umgangen, nichts vervielfältigt und nichts an Dritte weitergegeben. Deine Zugangsdaten liegen verschlüsselt auf deinem eigenen System und werden an niemanden außer Thalia selbst gesendet.
+
+Gleichwohl, offen gesagt: Die verwendete Schnittstelle ist nicht für den Zugriff durch fremde Software vorgesehen. **Die Nutzung dieser Funktion kann den Nutzungsbedingungen von Thalia widersprechen und erfolgt auf eigene Verantwortung.** Wer das nicht möchte, lässt sie einfach ungenutzt — **alle übrigen Funktionen arbeiten vollständig unabhängig davon.**
+
+### Gewährleistung
+
+Die Software wird bereitgestellt, wie sie ist, ohne Zusicherung irgendeiner Art. Die Nutzung erfolgt auf eigenes Risiko; für Schäden oder Datenverlust wird keine Haftung übernommen.
+
+**Lege Sicherungen an** (siehe [Teil 2, Punkt 1](#1-sicherungen-einrichten)) — das gilt für jede Software, die deine Daten verwaltet.
