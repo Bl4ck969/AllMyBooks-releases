@@ -1,8 +1,10 @@
-# AllMyBooks für Windows
+# AllMyBooks für Windows und Android
 
-Die Desktop-App zu deiner AllMyBooks-Bibliothek — als eigenes Fenster statt im Browser-Tab.
+Die Apps zu deiner AllMyBooks-Bibliothek — als eigenes Fenster statt im Browser-Tab, und als App auf dem Handy.
 
-Sie kann auf zwei Arten laufen: **eigenständig**, dann bringt sie Server und Datenbank selbst mit und braucht keinen weiteren Rechner. Oder als **Client** zu einem Server, der schon läuft — etwa auf einem NAS. Welche der beiden es sein soll, entscheidest du bei der Installation.
+Die **Windows-App** kann auf zwei Arten laufen: **eigenständig**, dann bringt sie Server und Datenbank selbst mit und braucht keinen weiteren Rechner. Oder als **Client** zu einem Server, der schon läuft — etwa auf einem NAS. Welche der beiden es sein soll, entscheidest du bei der Installation.
+
+Die **Android-App** ist immer ein Client: Sie koppelt sich mit einem Server, der bereits läuft — dem Hub. Das kann ein NAS sein oder die eigenständige Windows-App auf deinem Rechner.
 
 ## Download
 
@@ -11,7 +13,13 @@ Sie kann auf zwei Arten laufen: **eigenständig**, dann bringt sie Server und Da
 | **[⬇️ Neueste Version](https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest)** | Das willst du normalerweise |
 | [Alle Versionen](https://github.com/Bl4ck969/AllMyBooks-releases/releases) | Ältere Fassungen und die Änderungsnotizen |
 
-Lade die Datei **`AllMyBooks-Setup-<Version>.exe`** herunter. Die beiden anderen Dateien im Release (`.blockmap` und `latest.yml`) braucht die App selbst für ihre Updates — du musst sie nicht anfassen.
+Jedes Release enthält **beide** Apps:
+
+| Datei | wofür |
+|---|---|
+| `AllMyBooks-Setup-<Version>.exe` | Windows |
+| `AllMyBooks-<Version>.apk` | Android |
+| `.blockmap` und `latest.yml` | braucht die Windows-App für ihre Updates — nicht anfassen |
 
 ---
 
@@ -141,7 +149,18 @@ Die App prüft **beim Start und danach stündlich**, ob eine neue Version vorlie
 >
 > Das ist Absicht: Früher installierte sich das Update beim Beenden von selbst, und damit war die Wahl „Später" wertlos, sobald man das Fenster versehentlich schloss.
 
-Schlägt die Prüfung fehl, bleibt es still — meist fehlt einfach gerade die Internetverbindung. Deine Bibliothek ist davon nicht betroffen, sie läuft über deinen eigenen Server.
+**Du kannst jederzeit selbst nachsehen.** Im Symbol neben der Uhr steht immer ein Eintrag dafür, und er sagt dir gleich, woran du bist:
+
+| Was dort steht | Was es bedeutet |
+|---|---|
+| *Auf Aktualisierungen prüfen* | noch nicht nachgesehen — ein Klick startet die Suche |
+| *Suche nach Aktualisierungen …* | läuft gerade |
+| *Aktuell — erneut prüfen* | zuletzt war nichts Neues da |
+| *Lädt Fassung X … 42 %* | ein Update kommt gerade herunter |
+| *Aktualisieren auf X* | fertig geladen, wartet auf deinen Klick |
+| *Prüfung fehlgeschlagen — erneut versuchen* | kam nicht durch, meist fehlt die Internetverbindung |
+
+Schlägt die Prüfung fehl, bleibt es ansonsten still — deine Bibliothek ist davon nicht betroffen, sie läuft über deinen eigenen Server.
 
 **Deine Daten und Einstellungen überstehen jedes Update** — auch die hinterlegten Schlüssel und das Thalia-Konto.
 
@@ -177,13 +196,45 @@ In den **Einstellungen der App** (nicht zu verwechseln mit den Einstellungen *in
 
 Bei eigenständiger Installation brauchst du nichts weiter — Server und Datenbank sind mit dabei.
 
+## Die App auf dem Handy (Android)
+
+Lade **`AllMyBooks-<Version>.apk`** aus dem Release und öffne sie auf dem Handy. Android fragt dabei einmalig, ob es Apps aus dieser Quelle installieren darf — die App kommt nicht aus dem Play Store.
+
+### Mit deinem Hub verbinden
+
+Die App braucht einen Server, mit dem sie sich verbindet. Auf dem Rechner, auf dem er läuft:
+
+1. **Geräte** öffnen → **Gerät koppeln**
+2. Der Dialog zeigt einen QR-Code, darunter Adresse und einen achtstelligen Code
+3. In der App auf **QR-Code aufnehmen** — oder beides von Hand eintippen
+
+> ⚠️ **Beim Abtippen ist die Adresse die häufigste Fehlerquelle.** Sie muss die Form `http://192.168.1.50:3004` haben — mit Punkten zwischen den Zahlen, ohne Leerzeichen. Die Bildschirmtastatur macht aus einem Punkt gern ein Leerzeichen, und eine fehlende Ziffer sieht man leicht. **Der QR-Code umgeht das vollständig.**
+>
+> Werden mehrere Adressen angeboten, steht die aus deinem Heimnetz zuerst.
+>
+> ⚠️ Verbunden wird **nur ins eigene Netz**. Eine Adresse, die aus dem Heimnetz hinausführt, lehnt die App ab — unverschlüsselt gingen dort sonst Benutzername und Passwort hinaus. Für einen Server ausserhalb braucht es eine Adresse mit `https://`.
+
+### Updates
+
+In der App unter **Geräte** steht der Abschnitt **App-Aktualisierung**: Er nennt die installierte Fassung und prüft auf Wunsch, ob es eine neuere gibt. Findet er eine, kannst du sie direkt herunterladen und installieren lassen.
+
+> ⚠️ **Beim ersten Mal fragt Android nach einer Erlaubnis** („Unbekannte Apps installieren"). Der Weg dorthin ist schwer zu finden, deshalb führt dich ein Knopf direkt hin. Daneben steht immer der Weg von Hand über den Release-Bereich, falls etwas klemmt.
+>
+> Anders als bei Windows lädt die App **nicht** von selbst im Hintergrund — sie sieht nur nach, wenn du es anstösst.
+
+### Was die App kann und was nicht
+
+Sie zeigt deine Bibliothek, Personen, Cover und Lagerorte, kann Bücher als gelesen markieren, Favoriten setzen und ISBN-Codes über die Kamera einlesen. Sie braucht dafür **Verbindung zum Hub** — ohne ihn zeigt sie nichts an.
+
+---
+
 ## Wo deine Daten liegen
 
 Unter **`%APPDATA%\AllMyBooks`** — Datenbank, Buchcover, Personenfotos und Sicherungen. Dieser Ordner überlebt jedes Update, und auch eine **Deinstallation lässt ihn stehen**. Wer wirklich alles loswerden will, löscht ihn danach von Hand.
 
 ## Dieses Repository
 
-Hier liegen ausschließlich die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt. Die App holt sich ihre Updates direkt aus dem [Release-Bereich](https://github.com/Bl4ck969/AllMyBooks-releases/releases) dieses Repositories.
+Hier liegen ausschließlich die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt. Beide Apps holen sich ihre Updates direkt aus dem [Release-Bereich](https://github.com/Bl4ck969/AllMyBooks-releases/releases) dieses Repositories.
 
 ---
 
