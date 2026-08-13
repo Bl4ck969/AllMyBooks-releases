@@ -1,0 +1,49 @@
+# deploy/release-repo-workflows/bericht-aufraeumen.yml
+# ⚠ DIESE DATEI GEHÖRT INS RELEASE-REPO, nicht in dieses hier. Sie liegt
+# hier nur versioniert, damit sie nicht verlorengeht — angelegt wird sie
+# über die API (siehe Aufgabe 14, Schritt 4).
+name: Bericht aufräumen
+
+on:
+  issues:
+    types: [opened]
+
+# ⚠ Der Standard-Token bekommt hier NICHTS. Gelöscht und geschrieben wird
+# ausschließlich mit den beiden Secrets.
+permissions: {}
+
+# ⚠ Eine doppelte Webhook-Zustellung ist bei GitHub gelegentlich real — ohne
+# diese Sperre liefe der Bot zweimal für dasselbe Issue und legte doppelte
+# Ersatz-Issues an. Keine Sicherheitsverletzung (die drei Sicherungen im Bot
+# gelten unverändert), aber ein Konsistenzfehler, den eine Gruppe je
+# Issue-Nummer verhindert: ein zweiter Lauf für dieselbe Nummer wartet, statt
+# parallel mitzuschreiben.
+concurrency:
+  group: bericht-aufraeumen-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  aufraeumen:
+    # Vorfilter — spart Läufe. Die eigentliche Prüfung macht der Bot selbst,
+    # denn ein Label allein darf nie genügen.
+    if: contains(github.event.issue.labels.*.name, 'bericht-roh')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Aufräumen
+        env:
+          TOKEN_ADMIN: ${{ secrets.BERICHT_TOKEN_ADMIN }}
+          TOKEN_PRIVAT: ${{ secrets.BERICHT_TOKEN_PRIVAT }}
+          ISSUE: ${{ toJSON(github.event.issue) }}
+        run: |
+          node --input-type=module -e "
+          import { raeumeAuf } from './aufraeumen.mjs'
+          await raeumeAuf({
+            issue: JSON.parse(process.env.ISSUE),
+            tokenAdmin: process.env.TOKEN_ADMIN,
+            tokenPrivat: process.env.TOKEN_PRIVAT,
+          })
+          "
