@@ -216,15 +216,31 @@ Die App braucht einen Server, mit dem sie sich verbindet. Auf dem Rechner, auf d
 
 ### Updates
 
-In der App unter **Geräte** steht der Abschnitt **App-Aktualisierung**: Er nennt die installierte Fassung und prüft auf Wunsch, ob es eine neuere gibt. Findet er eine, kannst du sie direkt herunterladen und installieren lassen.
+**Die App sagt dir beim Start Bescheid**, wenn eine neue Fassung bereitliegt — mit der Wahl *jetzt schliessen und installieren* oder *später*. Bei „Später" fragt sie beim nächsten Start noch einmal.
+
+Nachsehen kannst du jederzeit selbst: in den **Einstellungen** unter **App-Aktualisierung**. Dort steht auch die installierte Fassung.
 
 > ⚠️ **Beim ersten Mal fragt Android nach einer Erlaubnis** („Unbekannte Apps installieren"). Der Weg dorthin ist schwer zu finden, deshalb führt dich ein Knopf direkt hin. Daneben steht immer der Weg von Hand über den Release-Bereich, falls etwas klemmt.
 >
-> Anders als bei Windows lädt die App **nicht** von selbst im Hintergrund — sie sieht nur nach, wenn du es anstösst.
+> Anders als bei Windows lädt die App **nicht** von selbst im Hintergrund. Sie prüft nur, ob es etwas Neues gibt; heruntergeladen wird erst, wenn du zustimmst.
 
 ### Was die App kann und was nicht
 
 Sie zeigt deine Bibliothek, Personen, Cover und Lagerorte, kann Bücher als gelesen markieren, Favoriten setzen und ISBN-Codes über die Kamera einlesen. Sie braucht dafür **Verbindung zum Hub** — ohne ihn zeigt sie nichts an.
+
+---
+
+## Einen Fehler melden
+
+In der App und im Windows-Client: **Menü → Fehler melden**. Fünf kurze Fragen — wo, wann, was du tun wolltest, was stattdessen passierte, wie oft. Ausfüllen musst du nur eines der beiden Textfelder; ein Bericht ohne Worte ist mehr wert als keiner. Ein GitHub-Konto brauchst du nicht.
+
+**Deine Beschreibung wird öffentlich**: Sie erscheint hier als Issue, damit andere dasselbe Problem wiedererkennen und sehen, wann es behoben wurde. **Das technische Protokoll geht nicht öffentlich mit** — es landet dort, wo die Entwicklung es lesen kann.
+
+> Unter **„Anzeigen, was gesendet wird"** stehen beide Teile getrennt und wörtlich, **bevor** du absendest. Der vollständige Bericht lässt sich von dort auch in die Zwischenablage legen.
+
+> ⚠️ **Antwortet der Melde-Dienst gerade nicht**, bietet die App ersatzweise ein GitHub-Formular an. Auf diesem Weg steht der **ganze** Bericht für kurze Zeit öffentlich, auch das Protokoll — die App sagt das vorher und fragt nach. Wenige Augenblicke später teilt ein Automat den Bericht auf und nimmt die technischen Angaben aus dem öffentlichen Teil wieder heraus.
+
+**Endet die App unerwartet**, fragt sie beim nächsten Start, ob du das melden möchtest — mit dem Protokoll der Minuten davor. Nur eine Frage; von selbst wird nichts gesendet. Wer die App aus der Übersicht wischt, bekommt dieselbe Frage, denn Android unterscheidet beides nicht; sie lässt sich wegtippen. Der Windows-Client vermerkt ein unerwartetes Ende vorerst nur in seinem Protokoll, ohne zu fragen.
 
 ---
 
