@@ -179,7 +179,7 @@
   const schliesseLupe = () => {
     if (!lupe?.classList.contains('offen')) return
     lupe.classList.remove('offen')
-    lupenbild.src = ''
+    lupenbild.removeAttribute('src')   // NICHT src = '' — das laedt die Seite selbst
     document.body.style.overflow = ''
     zuletztGeklickt?.focus?.()
   }
