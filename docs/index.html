@@ -1,0 +1,1939 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AllMyBooks — Handbuch</title>
+<meta name="description" content="Vollständige Anleitung zu AllMyBooks: Installation unter Windows und Android, das Server-Client-Prinzip, alle Funktionen der Oberfläche, Sicherungen und Fehlersuche.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/stil.css">
+<meta property="og:title" content="AllMyBooks — Handbuch">
+<meta property="og:description" content="Installation, Aufbau und alle Funktionen von AllMyBooks für Windows und Android.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopf">
+  <button class="kopf__menue" id="menue-knopf" aria-expanded="false" aria-controls="inhaltsverzeichnis" aria-label="Inhaltsverzeichnis anzeigen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+
+  <a class="kopf__marke" href="#oben">
+    <img src="assets/logo.png" alt="" width="28" height="28">
+    AllMyBooks
+    <span class="zusatz">Handbuch</span>
+  </a>
+
+  <div class="kopf__rechts">
+    <a class="knopf" href="https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      <span class="beschriftung">Download</span>
+    </a>
+    <button class="knopf knopf--nurbild" id="thema-schalter" title="Dunkles Thema" aria-label="Dunkles Thema">
+      <svg class="symbol-dunkel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="symbol-hell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="rahmen">
+
+  <!-- ================= Inhaltsverzeichnis ================= -->
+  <nav class="leiste" id="inhaltsverzeichnis" aria-label="Inhaltsverzeichnis">
+
+    <div class="suche">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="suchfeld" placeholder="Im Handbuch suchen …" aria-label="Im Inhaltsverzeichnis suchen" autocomplete="off">
+      <p class="suche__leer" id="such-leer">Kein Abschnitt gefunden.</p>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Einstieg</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="einleitung start ueberblick was ist"><a href="#was-ist-allmybooks">Was ist AllMyBooks?</a></li>
+        <li data-schlagworte="funktionen koennen features"><a href="#was-kann-es">Was die Anwendung kann</a></li>
+        <li data-schlagworte="voraussetzungen systemanforderungen windows android"><a href="#voraussetzungen">Voraussetzungen</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Aufbau verstehen</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="server client hub prinzip architektur"><a href="#server-client">Das Server-Client-Prinzip</a></li>
+        <li data-schlagworte="betriebsart eigenstaendig standalone nas aufbau varianten"><a href="#aufbauarten">Die drei Aufbauarten</a></li>
+        <li data-schlagworte="daten speicherort datenbank cover wo liegen"><a href="#wo-liegen-daten">Wo die Daten liegen</a></li>
+        <li data-schlagworte="glossar begriffe woerterbuch erklaerung lexikon"><a href="#begriffe">Begriffe von A bis Z</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Installation</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="windows setup exe installer smartscreen"><a href="#installation-windows">Windows</a></li>
+        <li data-schlagworte="android apk handy tablet"><a href="#installation-android">Android</a></li>
+        <li data-schlagworte="docker container nas unraid synology server"><a href="#installation-server">Server im Container</a></li>
+        <li data-schlagworte="erster start konto anmelden sicherheitsfragen"><a href="#erster-start">Der erste Start</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Die ersten Schritte</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="reihenfolge einrichten empfehlung"><a href="#reihenfolge">In dieser Reihenfolge</a></li>
+        <li data-schlagworte="sicherung backup zeitplan aufbewahrung"><a href="#schritt-sicherungen">1 — Sicherungen</a></li>
+        <li data-schlagworte="google books api schluessel key cover"><a href="#schritt-google">2 — Google-Books-Schlüssel</a></li>
+        <li data-schlagworte="lagerort regal ort standort"><a href="#schritt-lagerorte">3 — Lagerorte</a></li>
+        <li data-schlagworte="import buecher hineinbekommen csv isbn"><a href="#schritt-import">4 — Bücher importieren</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Die Oberfläche</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="navigation seitenleiste menue aufbau"><a href="#oberflaeche">Aufbau der Oberfläche</a></li>
+        <li data-schlagworte="uebersicht dashboard statistik zahlen"><a href="#seite-uebersicht">Übersicht</a></li>
+        <li data-schlagworte="bibliothek filter suche stapel kacheln"><a href="#seite-bibliothek">Bibliothek</a></li>
+        <li data-schlagworte="titel detail buch ausgabe medium cover"><a href="#seite-titel">Die Titelseite</a></li>
+        <li data-schlagworte="personen autoren uebersetzer wikipedia"><a href="#seite-personen">Personen</a></li>
+        <li data-schlagworte="kategorien genre tags schlagworte"><a href="#seite-kategorien">Kategorien und Genres</a></li>
+        <li data-schlagworte="lagerorte regale standorte quellen"><a href="#seite-lagerorte">Lagerorte</a></li>
+        <li data-schlagworte="favoriten herz merkliste"><a href="#seite-favoriten">Favoriten</a></li>
+        <li data-schlagworte="import reiter csv xlsx isbn thalia manuell ki"><a href="#seite-import">Import</a></li>
+        <li data-schlagworte="geraete kopplung handy tablet qr"><a href="#seite-geraete">Geräte</a></li>
+        <li data-schlagworte="sicherungen backup wiederherstellen"><a href="#seite-sicherungen">Sicherungen</a></li>
+        <li data-schlagworte="benutzer konten rollen admin"><a href="#seite-benutzer">Benutzer</a></li>
+        <li data-schlagworte="einstellungen reiter anzeige"><a href="#seite-einstellungen">Einstellungen</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Handy und Tablet</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="koppeln qr code verbinden hub adresse"><a href="#handy-koppeln">Das Handy anbinden</a></li>
+        <li data-schlagworte="app kann offline scanner kamera"><a href="#handy-funktionen">Was die App kann</a></li>
+        <li data-schlagworte="mehrere server wechseln umschalten"><a href="#mehrere-server">Mehrere Server</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Betrieb</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="update aktualisierung neue fassung version"><a href="#updates">Aktualisierungen</a></li>
+        <li data-schlagworte="sicherung wiederherstellen umzug restore"><a href="#sichern-wiederherstellen">Sichern und wiederherstellen</a></li>
+        <li data-schlagworte="umzug wechsel migration verschieben"><a href="#umzug">Umzug auf einen anderen Rechner</a></li>
+        <li data-schlagworte="fehler problem hilfe stoerung"><a href="#fehlersuche">Fehlersuche</a></li>
+        <li data-schlagworte="melden bericht fehlerbericht issue"><a href="#melden">Einen Fehler melden</a></li>
+      </ul>
+    </div>
+
+    <div class="iv__gruppe">
+      <p class="iv__titel">Anhang</p>
+      <ul class="iv__liste">
+        <li data-schlagworte="datenschutz daten privat internet verbindungen"><a href="#datenschutz">Datenschutz</a></li>
+        <li data-schlagworte="rechtliches marken thalia haftung gewaehrleistung"><a href="#rechtliches">Rechtliches</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================= Inhalt ================= -->
+  <main class="inhalt" id="inhalt">
+
+    <div class="titelblock" id="oben">
+      <span class="marke-fassung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Handbuch für Windows und Android
+      </span>
+      <h1>AllMyBooks — das Handbuch</h1>
+      <p class="vorspann">
+        Diese Seite erklärt AllMyBooks vollständig: wie die Anwendung aufgebaut ist,
+        wie sie installiert wird, was jede Ansicht tut — und was zu tun ist, wenn
+        etwas nicht funktioniert. Sie ist zum Nachschlagen gedacht; über das
+        Inhaltsverzeichnis links kommen Sie überall direkt hin.
+      </p>
+      <div class="titelblock__knoepfe">
+        <a class="knopf knopf--betont" href="https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Neueste Fassung laden
+        </a>
+        <a class="knopf" href="#installation-windows">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Direkt zur Installation
+        </a>
+      </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="was-ist-allmybooks">Was ist AllMyBooks?</h2>
+
+      <p>
+        AllMyBooks verwaltet Ihre Büchersammlung — gedruckte Bücher ebenso wie
+        E-Books. Es hält fest, welche Bücher Sie besitzen, wo sie stehen, wer sie
+        geschrieben hat, was Sie gelesen haben und an wen Sie etwas verliehen
+        haben.
+      </p>
+
+      <p>
+        Die Anwendung läuft <strong>auf Ihren eigenen Geräten</strong>. Es gibt
+        keinen Anbieter-Server, kein Benutzerkonto bei einem Dienst und keine
+        Gebühren. Ihre Daten liegen dort, wo Sie die Anwendung installieren — auf
+        Ihrem PC oder auf einem Netzwerkspeicher bei Ihnen zu Hause.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Zwei Programme, ein Bestand</span>
+          <p>
+            Es gibt AllMyBooks als <strong>Windows-Programm</strong> und als
+            <strong>Android-App</strong>. Beide zeigen dieselbe Sammlung — sie
+            greifen auf denselben Bestand zu. Wie das zusammenhängt, erklärt der
+            Abschnitt <a href="#server-client">Das Server-Client-Prinzip</a>.
+          </p>
+        </div>
+      </div>
+
+      <figure>
+        <img src="bilder/03-uebersicht.webp" alt="Die Übersichtsseite von AllMyBooks mit Kennzahlen zu Titeln, Ausgabearten, Lese-Status und Seitenzahlen" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Die Übersicht.</b> Sie fasst den Bestand in Zahlen zusammen — hier eine Sammlung mit 862 Titeln.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="was-kann-es">Was die Anwendung kann</h2>
+
+      <div class="karten">
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Bestand führen</h4>
+          <p>Titel, Ausgaben, Reihen, Verlage, Erscheinungsjahre, Seitenzahlen, Sprachen und Einbandarten.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Lesen festhalten</h4>
+          <p>Angefangen, gelesen, Favorit — je Benutzer getrennt, mit Datum und Verlauf.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Standorte verwalten</h4>
+          <p>Welches Buch in welchem Regal steht — mit Regeln, welche Ausgabearten wo zulässig sind.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Bücher aufnehmen</h4>
+          <p>Per ISBN, per Kamera-Scan, aus Tabellen anderer Programme oder von Hand.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> Cover pflegen</h4>
+          <p>Automatisch geladen, selbst hochgeladen oder abfotografiert — mit Zuschnitt und Entzerrung.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Mehrere Personen</h4>
+          <p>Jedes Haushaltsmitglied hat ein eigenes Konto mit eigenem Lese-Verlauf und eigenen Favoriten.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> Handy und Tablet</h4>
+          <p>Die Android-App zeigt den Bestand unterwegs und liest ISBN-Codes mit der Kamera ein.</p>
+        </div>
+        <div class="karte">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg> E-Books abgleichen</h4>
+          <p>Die Angaben zu gekauften E-Books lassen sich aus der Tolino-Cloud übernehmen.</p>
+        </div>
+      </div>
+
+      <p>
+        Eine ausführliche Beschreibung jeder einzelnen Ansicht steht weiter unten
+        im Kapitel <a href="#oberflaeche">Die Oberfläche</a>.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="voraussetzungen">Voraussetzungen</h2>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead>
+            <tr><th>Für</th><th>Sie brauchen</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Windows-Programm</strong></td>
+              <td>Windows 10 oder 11, 64 Bit. Rund 700 MB freier Platz bei eigenständigem Betrieb, deutlich weniger als Client. <strong>Keine Administratorrechte.</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Android-App</strong></td>
+              <td>Ein Android-Gerät und ein laufender Server im selben Netzwerk. Die App kommt nicht aus dem Play Store, die Installation aus einer Datei muss deshalb einmalig erlaubt werden.</td>
+            </tr>
+            <tr>
+              <td><strong>Server im Container</strong></td>
+              <td>Ein Gerät, auf dem Docker läuft — etwa ein NAS. Optional; wer nur einen PC nutzt, braucht das nicht.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Eine Internetverbindung wird <strong>nicht dauerhaft</strong> gebraucht.
+        Nötig ist sie nur, wenn Buchdaten oder Cover nachgeschlagen, E-Books
+        abgeglichen oder Aktualisierungen geholt werden. Der Bestand selbst ist
+        jederzeit ohne Internet nutzbar.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="server-client">Das Server-Client-Prinzip</h2>
+
+      <p>
+        AllMyBooks besteht aus zwei Teilen, die getrennte Aufgaben haben. Wer
+        diese Trennung einmal verstanden hat, versteht auch, warum bei der
+        Installation nach einer <em>Betriebsart</em> gefragt wird und warum das
+        Handy einen <em>Hub</em> braucht.
+      </p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead>
+            <tr><th>Teil</th><th>Aufgabe</th><th>Wo er läuft</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Der Server</strong><br><span style="color:var(--schrift-still)">auch: Hub</span></td>
+              <td>Hält die Datenbank und alle Bilddateien. Er ist die einzige Stelle, an der Ihr Bestand wirklich liegt. Er hat keine eigene Bildschirmoberfläche.</td>
+              <td>Genau einmal — auf einem PC oder auf einem Netzwerkspeicher.</td>
+            </tr>
+            <tr>
+              <td><strong>Der Client</strong></td>
+              <td>Zeigt den Bestand an und nimmt Ihre Eingaben entgegen. Er speichert selbst nichts Dauerhaftes, sondern fragt den Server.</td>
+              <td>Beliebig oft — auf jedem PC und jedem Handy, das mitmachen soll.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="schaubild">
+        <svg viewBox="0 0 720 330" role="img" aria-label="Schaubild: mehrere Clients greifen über das Heimnetz auf einen Server zu, der Datenbank und Bilddateien hält">
+          <defs>
+            <marker id="pfeil" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 0 10 5 0 10z" fill="var(--linie-stark)"/>
+            </marker>
+          </defs>
+
+          <!-- Server -->
+          <rect x="252" y="18" width="216" height="112" rx="10" fill="var(--akzent-grund)" stroke="var(--akzent-linie)" stroke-width="1.5"/>
+          <text x="360" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="var(--akzent)">Server (Hub)</text>
+          <text x="360" y="68" text-anchor="middle" font-size="12.5" fill="var(--schrift-leise)">Datenbank · Cover · Personenfotos</text>
+          <rect x="272" y="82" width="80" height="30" rx="6" fill="var(--flaeche)" stroke="var(--linie)"/>
+          <text x="312" y="101" text-anchor="middle" font-size="11.5" fill="var(--schrift-leise)">Datenbank</text>
+          <rect x="368" y="82" width="80" height="30" rx="6" fill="var(--flaeche)" stroke="var(--linie)"/>
+          <text x="408" y="101" text-anchor="middle" font-size="11.5" fill="var(--schrift-leise)">Dateien</text>
+
+          <!-- Netz: Beschriftung links, damit sie nicht auf der Verbindungslinie liegt -->
+          <text x="90" y="172" text-anchor="start" font-size="12" font-weight="600" fill="var(--schrift-still)">Ihr Heimnetz</text>
+          <line x1="90" y1="180" x2="630" y2="180" stroke="var(--linie-stark)" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+          <!-- Verbindungen -->
+          <line x1="360" y1="130" x2="360" y2="180" stroke="var(--linie-stark)" stroke-width="1.5"/>
+          <line x1="130" y1="180" x2="130" y2="216" stroke="var(--linie-stark)" stroke-width="1.5" marker-end="url(#pfeil)"/>
+          <line x1="360" y1="180" x2="360" y2="216" stroke="var(--linie-stark)" stroke-width="1.5" marker-end="url(#pfeil)"/>
+          <line x1="590" y1="180" x2="590" y2="216" stroke="var(--linie-stark)" stroke-width="1.5" marker-end="url(#pfeil)"/>
+
+          <!-- Clients -->
+          <rect x="40" y="222" width="180" height="82" rx="10" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="130" y="248" text-anchor="middle" font-size="13.5" font-weight="650" fill="var(--schrift)">Windows-PC</text>
+          <text x="130" y="269" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">AllMyBooks als Client</text>
+          <text x="130" y="288" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">zeigt an, speichert nicht</text>
+
+          <rect x="270" y="222" width="180" height="82" rx="10" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="360" y="248" text-anchor="middle" font-size="13.5" font-weight="650" fill="var(--schrift)">Handy / Tablet</text>
+          <text x="360" y="269" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">Android-App</text>
+          <text x="360" y="288" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">immer ein Client</text>
+
+          <rect x="500" y="222" width="180" height="82" rx="10" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="590" y="248" text-anchor="middle" font-size="13.5" font-weight="650" fill="var(--schrift)">Browser</text>
+          <text x="590" y="269" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">jeder Rechner im Netz</text>
+          <text x="590" y="288" text-anchor="middle" font-size="11.5" fill="var(--schrift-still)">ohne Installation</text>
+        </svg>
+        <figcaption>
+          <b>Ein Server, beliebig viele Clients.</b> Alle sehen denselben Bestand.
+          Was auf dem Handy als gelesen markiert wird, steht Augenblicke später
+          auch auf dem PC.
+        </figcaption>
+      </figure>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Der Server braucht keinen zweiten Rechner</span>
+          <p>
+            „Server“ klingt nach eigener Hardware — gemeint ist hier nur eine
+            Rolle. Bei der eigenständigen Installation übernimmt Ihr ganz
+            normaler Windows-PC beide Rollen gleichzeitig: Er ist Server
+            <em>und</em> Client. Sie merken davon nichts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="aufbauarten">Die drei Aufbauarten</h2>
+
+      <p>
+        Aus dieser Rollentrennung ergeben sich drei sinnvolle Aufbauten. Die
+        Entscheidung fällt bei der Installation des Windows-Programms und lässt
+        sich später ändern — allerdings nicht per Klick, sondern durch eine
+        Neuinstallation.
+      </p>
+
+      <h3 id="aufbau-a">A — Nur ein PC (eigenständig)</h3>
+
+      <figure class="schaubild">
+        <svg viewBox="0 0 720 190" role="img" aria-label="Schaubild: ein einzelner PC enthält Server und Bedienoberfläche zugleich">
+          <rect x="180" y="20" width="360" height="140" rx="12" fill="var(--grund-versenkt)" stroke="var(--linie-stark)" stroke-width="1.5"/>
+          <text x="360" y="46" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--schrift)">Ihr Windows-PC</text>
+
+          <rect x="204" y="62" width="144" height="76" rx="8" fill="var(--akzent-grund)" stroke="var(--akzent-linie)" stroke-width="1.5"/>
+          <text x="276" y="88" text-anchor="middle" font-size="12.5" font-weight="650" fill="var(--akzent)">Server</text>
+          <text x="276" y="108" text-anchor="middle" font-size="11" fill="var(--schrift-leise)">Datenbank</text>
+          <text x="276" y="125" text-anchor="middle" font-size="11" fill="var(--schrift-leise)">Cover-Dateien</text>
+
+          <rect x="372" y="62" width="144" height="76" rx="8" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="444" y="88" text-anchor="middle" font-size="12.5" font-weight="650" fill="var(--schrift)">Oberfläche</text>
+          <text x="444" y="108" text-anchor="middle" font-size="11" fill="var(--schrift-still)">das Fenster,</text>
+          <text x="444" y="125" text-anchor="middle" font-size="11" fill="var(--schrift-still)">das Sie bedienen</text>
+
+          <line x1="348" y1="100" x2="372" y2="100" stroke="var(--linie-stark)" stroke-width="1.5"/>
+        </svg>
+        <figcaption><b>Alles auf einem Gerät.</b> Kein Netzwerk nötig, kein weiterer Rechner, keine Adresse zum Merken.</figcaption>
+      </figure>
+
+      <p>
+        <strong>Passend, wenn</strong> Sie AllMyBooks nur an einem Rechner
+        benutzen. Das ist die Voreinstellung des Installers und der Weg, der ohne
+        Vorwissen funktioniert.
+      </p>
+      <p>
+        <strong>Grenze:</strong> Ein Handy kann sich mit diesem PC verbinden —
+        aber nur, solange er eingeschaltet ist und AllMyBooks läuft.
+      </p>
+
+      <h3 id="aufbau-b">B — Server auf einem Netzwerkspeicher</h3>
+
+      <figure class="schaubild">
+        <svg viewBox="0 0 720 250" role="img" aria-label="Schaubild: ein NAS hält den Server, PC und Handy greifen als Clients darauf zu">
+          <rect x="252" y="14" width="216" height="88" rx="10" fill="var(--akzent-grund)" stroke="var(--akzent-linie)" stroke-width="1.5"/>
+          <text x="360" y="40" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--akzent)">NAS / Heimserver</text>
+          <text x="360" y="61" text-anchor="middle" font-size="11.5" fill="var(--schrift-leise)">Server im Container</text>
+          <text x="360" y="80" text-anchor="middle" font-size="11.5" fill="var(--schrift-leise)">läuft rund um die Uhr</text>
+
+          <line x1="360" y1="102" x2="360" y2="132" stroke="var(--linie-stark)" stroke-width="1.5"/>
+          <line x1="140" y1="132" x2="580" y2="132" stroke="var(--linie-stark)" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <line x1="200" y1="132" x2="200" y2="162" stroke="var(--linie-stark)" stroke-width="1.5"/>
+          <line x1="520" y1="132" x2="520" y2="162" stroke="var(--linie-stark)" stroke-width="1.5"/>
+
+          <rect x="110" y="166" width="180" height="70" rx="10" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="200" y="192" text-anchor="middle" font-size="12.5" font-weight="650" fill="var(--schrift)">Windows-PC</text>
+          <text x="200" y="213" text-anchor="middle" font-size="11" fill="var(--schrift-still)">Betriebsart: Client</text>
+
+          <rect x="430" y="166" width="180" height="70" rx="10" fill="var(--flaeche)" stroke="var(--linie)" stroke-width="1.5"/>
+          <text x="520" y="192" text-anchor="middle" font-size="12.5" font-weight="650" fill="var(--schrift)">Handy / Tablet</text>
+          <text x="520" y="213" text-anchor="middle" font-size="11" fill="var(--schrift-still)">gekoppelt über QR-Code</text>
+        </svg>
+        <figcaption><b>Der stabilste Aufbau.</b> Der Server ist immer erreichbar, auch wenn kein PC eingeschaltet ist.</figcaption>
+      </figure>
+
+      <p>
+        <strong>Passend, wenn</strong> ein NAS ohnehin durchläuft und mehrere
+        Geräte mitmachen sollen. Nur so klappen nächtliche Sicherungen und
+        Zeitpläne zuverlässig — sie brauchen einen laufenden Server.
+      </p>
+
+      <h3 id="aufbau-c">C — Ein PC als Server, weitere Geräte als Clients</h3>
+
+      <p>
+        Die Mischform: Ein Windows-PC wird eigenständig installiert und ist damit
+        zugleich Server für die anderen. Handy und Zweit-PC verbinden sich mit
+        ihm. Das funktioniert gut, hat aber eine Bedingung, die man kennen muss.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Zeitpläne laufen nur bei geöffneter Anwendung</span>
+          <p>
+            Bei eigenständigem Betrieb steckt der Server <em>im</em> Programm.
+            Wird das Programm beendet, ist auch der Server weg: Ein Handy findet
+            ihn dann nicht mehr, und eine für 01:00 Uhr eingeplante Sicherung
+            wird <strong>nicht erstellt und auch nicht nachgeholt</strong>.
+          </p>
+          <p>
+            Beim Server im Container besteht dieses Problem nicht — er läuft
+            durch.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="aufbau-vergleich">Welcher Aufbau für wen?</h3>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead>
+            <tr><th>Ihre Lage</th><th>Empfehlung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ein Rechner, kein Handy</td><td><strong>A</strong> — eigenständig. Nichts weiter einzurichten.</td></tr>
+            <tr><td>Ein Rechner, Handy soll gelegentlich mit</td><td><strong>C</strong> — eigenständig installieren, Handy koppeln. Der PC muss dafür laufen.</td></tr>
+            <tr><td>Ein NAS ist vorhanden</td><td><strong>B</strong> — Server dorthin. Der beste Aufbau, wenn mehrere Geräte mitmachen.</td></tr>
+            <tr><td>Mehrere Rechner, kein NAS</td><td><strong>C</strong> — der Rechner, der am häufigsten läuft, wird eigenständig installiert; die übrigen als Client.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="wo-liegen-daten">Wo die Daten liegen</h2>
+
+      <p>
+        Alles, was AllMyBooks speichert, liegt beim <strong>Server</strong> —
+        nirgendwo sonst. Ein Client hält nichts Dauerhaftes; die Android-App legt
+        lediglich eine Kopie zum Lesen an, damit sie ohne Verbindung noch etwas
+        anzeigen kann.
+      </p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead>
+            <tr><th>Betriebsart</th><th>Ordner</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Windows, eigenständig</strong></td>
+              <td><code>%APPDATA%\AllMyBooks</code> — Datenbank, Buchcover, Personenfotos und Sicherungen.</td>
+            </tr>
+            <tr>
+              <td><strong>Windows, Client</strong></td>
+              <td>Nur Programmeinstellungen. Der Bestand liegt beim Server, mit dem sich der Client verbindet.</td>
+            </tr>
+            <tr>
+              <td><strong>Server im Container</strong></td>
+              <td>In den Ordnern, die beim Einrichten des Containers eingebunden wurden.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kasten kasten--gut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <div>
+          <span class="kasten__titel">Aktualisierungen fassen Ihre Daten nicht an</span>
+          <p>
+            Der Datenordner überlebt jedes Update — und sogar eine
+            Deinstallation. Wer wirklich alles loswerden will, löscht ihn
+            anschließend von Hand.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="begriffe">Begriffe von A bis Z</h2>
+
+      <p>
+        In der Oberfläche und in dieser Anleitung tauchen einige Wörter auf, die
+        eine feste Bedeutung haben. Hier stehen sie alle beieinander.
+      </p>
+
+      <dl class="begriffe">
+        <div class="begriff">
+          <dt>Ausgabe <span class="synonym">in der Oberfläche auch: Medium</span></dt>
+          <dd>Ein bestimmtes Exemplar eines Titels: das Taschenbuch, das gebundene Buch, das E-Book. Ein Titel kann mehrere Ausgaben haben — sie stehen dann gemeinsam auf einer Seite, jede mit eigenem Lagerort und eigenem Cover.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Betriebsart</dt>
+          <dd>Die Entscheidung, ob das Windows-Programm <em>eigenständig</em> läuft (bringt den Server selbst mit) oder als <em>Client</em> (verbindet sich mit einem vorhandenen Server). Sie wird bei der Installation abgefragt und danach gemerkt.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Client</dt>
+          <dd>Ein Programm, das anzeigt und bedient, aber nichts dauerhaft speichert. Die Android-App ist immer ein Client, das Windows-Programm kann einer sein.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>DNB</dt>
+          <dd>Die Deutsche Nationalbibliothek. Voreingestellte Quelle für Buchdaten — sie braucht keinen Schlüssel und liefert vor allem deutschsprachige Titel zuverlässig. Cover liefert sie allerdings keine.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Genre und Kategorie</dt>
+          <dd><strong>Genres</strong> sind eine feste, gepflegte Liste (Krimi, Sachbuch, Fantasy …) und werden beim Anlegen eines Titels automatisch zugeordnet.</dd>
+          <dd><strong>Kategorien</strong> legen Sie selbst an — für alles, was Ihnen sonst wichtig ist: „Weihnachtsgeschenk“, „Ausgeliehen an Papa“, „Zweitauflage“.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Hub</dt>
+          <dd>Das andere Wort für den Server. Es wird vor allem dort verwendet, wo es um die Verbindung des Handys geht: Das Handy wird „mit einem Hub gekoppelt“.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Kopplung</dt>
+          <dd>Die einmalige Verbindung zwischen einem Gerät und einem Hub. Sie wird über einen QR-Code hergestellt und bleibt danach bestehen — auch nach einem Neustart des Geräts.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Kopplungscode</dt>
+          <dd>Eine achtstellige Zeichenfolge, die zum QR-Code gehört. Wer den QR-Code nicht scannen kann, tippt sie zusammen mit der Adresse von Hand ein. Sie ist nur kurz gültig und lässt sich einmal einlösen.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Lagerort</dt>
+          <dd>Der Ort, an dem ein Buch tatsächlich steht: „Wohnzimmer, Regal 2“, „Keller-Kiste“, „Thalia-Cloud“. Je Lagerort lässt sich festlegen, welche Ausgabearten dort zulässig sind — <strong>eine leere Liste bedeutet: alle sind erlaubt</strong>.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Lese-Eintrag <span class="synonym">Lese-Ereignis</span></dt>
+          <dd>Ein Vermerk, dass jemand ein Buch angefangen oder zu Ende gelesen hat, mit Datum. Jeder Benutzer hat eigene Einträge — zwei Personen können dasselbe Buch unabhängig voneinander lesen.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Metadaten</dt>
+          <dd>Die Angaben <em>über</em> ein Buch: Titel, Autor, Verlag, Jahr, Seitenzahl, Sprache, Beschreibung, Cover. AllMyBooks holt sie automatisch, sobald es eine ISBN kennt.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Replikat</dt>
+          <dd>Die Lesekopie, die die Android-App auf dem Gerät anlegt. Dadurch bleibt die Bibliothek auch dann sichtbar, wenn der Hub gerade nicht erreichbar ist. Es ist eine Kopie — der Bestand selbst liegt weiter beim Server.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Sicherung</dt>
+          <dd>Eine vollständige Kopie von Datenbank <em>und</em> Bilddateien in einer Archivdatei. Sie lässt sich jederzeit zurückspielen und ist zugleich der Weg, den Bestand auf einen anderen Rechner umzuziehen.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Stapel <span class="synonym">Reiter „Unbearbeitet“</span></dt>
+          <dd>Der Zwischenspeicher für Bücher, bei denen beim Import etwas offen blieb — etwa eine fehlende Ausgabeart. Sie sind nicht verloren: Sie warten dort, bis Sie sie ergänzen und übernehmen.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Thalia-Abgleich <span class="synonym">Thalia-Sync</span></dt>
+          <dd>Übernimmt die <em>Angaben</em> zu Ihren gekauften E-Books aus der Tolino-Cloud in Ihre Bibliothek — Titel, Autor, ISBN, Cover, Lesefortschritt. <strong>Die Buchdateien selbst werden nicht heruntergeladen.</strong> Siehe <a href="#rechtliches">Rechtliches</a>.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Titel</dt>
+          <dd>Das Werk als solches — „Der Herr der Ringe“. Ein Titel steht einmal in der Bibliothek, auch wenn Sie ihn dreimal im Regal haben; die drei Exemplare sind seine Ausgaben.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="installation-windows">Installation — Windows</h2>
+
+      <ol class="schritte">
+        <li>
+          <strong>Die Installationsdatei laden</strong>
+          <p>
+            Aus dem <a href="https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest">Release-Bereich</a>
+            die Datei <code>AllMyBooks-Setup-&lt;Fassung&gt;.exe</code> herunterladen.
+            Die übrigen Dateien dort (<code>.blockmap</code>, <code>latest.yml</code>)
+            braucht das Programm für seine eigenen Aktualisierungen — sie werden
+            nicht von Hand geladen.
+          </p>
+        </li>
+
+        <li>
+          <strong>Die Windows-Warnung wegklicken</strong>
+          <p>
+            Beim Start meldet Windows <em>„Der Computer wurde durch Windows
+            geschützt“</em>. Grund ist, dass die Datei nicht kostenpflichtig
+            signiert ist — nicht, dass etwas mit ihr nicht stimmt.
+            Auf <strong>Weitere Informationen</strong> klicken, dann auf
+            <strong>Trotzdem ausführen</strong>. Das ist einmalig je Installation.
+          </p>
+        </li>
+
+        <li>
+          <strong>Die Betriebsart wählen</strong>
+          <p>
+            Die erste Seite des Installers stellt die einzige Frage, die man sich
+            vorher überlegt haben sollte. Der Abschnitt
+            <a href="#aufbauarten">Die drei Aufbauarten</a> hilft bei der
+            Entscheidung.
+          </p>
+          <div class="tabellenrahmen">
+            <table>
+              <thead><tr><th>Auswahl</th><th>Bedeutung</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Eigenständig</strong><br><span style="color:var(--schrift-still)">Voreinstellung</span></td>
+                  <td>Dieser PC verwaltet die Bücher selbst. Server und Datenbank kommen mit. Belegt rund 500 MB mehr Platz. Der Weg, der ohne Vorwissen funktioniert.</td>
+                </tr>
+                <tr>
+                  <td><strong>Mit vorhandenem Server verbinden</strong></td>
+                  <td>Für einen Server, der schon läuft. Die Adresse wird beim ersten Start abgefragt — halten Sie sie bereit.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Diese Frage kommt bewusst <em>vor</em> der Ordnerwahl: Der
+            Platzbedarf hängt davon ab. Bei „Client“ werden die Server-Teile
+            <strong>gar nicht erst ausgepackt</strong> — die Installation ist
+            dann deutlich kleiner und schneller.
+          </p>
+        </li>
+
+        <li>
+          <strong>Ordner und Startmenü</strong>
+          <p>
+            Danach folgen der Installationsordner und die Frage nach einem
+            Startmenü-Eintrag. Installiert wird in Ihr Benutzerprofil unter
+            <code>%LOCALAPPDATA%\Programs</code> — <strong>ohne
+            Administratorrechte</strong>. Spätere Aktualisierungen ebenso;
+            Windows fragt dabei nie nach.
+          </p>
+        </li>
+      </ol>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Neuinstallation über eine bestehende Installation</span>
+          <p>
+            Der Installer fragt die Betriebsart <strong>kein zweites Mal</strong>
+            — er merkt sich Ihre Wahl. Ein Fehlklick kann sie also nicht
+            umstellen. Wer sie wirklich wechseln will, deinstalliert vorher.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="installation-android">Installation — Android</h2>
+
+      <p>
+        Die App liegt nicht im Play Store. Laden Sie
+        <code>AllMyBooks-&lt;Fassung&gt;.apk</code> aus dem
+        <a href="https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest">Release-Bereich</a>
+        auf das Gerät und öffnen Sie die Datei.
+      </p>
+
+      <p>
+        Android fragt dabei einmalig, ob Apps aus dieser Quelle installiert
+        werden dürfen. Diese Erlaubnis gilt der App, die die Datei geöffnet hat
+        (meist Ihrem Browser oder der Dateiverwaltung) — nicht AllMyBooks selbst.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Play Protect meldet die App als verdächtig</span>
+          <p>
+            Das kommt vor und liegt daran, dass die App nicht aus dem Play Store
+            stammt und sich selbst aktualisieren darf. Die Meldung lässt sich
+            wegklicken; die Installation läuft danach normal weiter.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Nach der Installation braucht die App einen Hub, mit dem sie sich
+        verbindet — siehe <a href="#handy-koppeln">Das Handy anbinden</a>.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="installation-server">Installation — Server im Container</h2>
+
+      <p>
+        Wer einen Netzwerkspeicher oder einen kleinen Heimserver mit Docker
+        betreibt, kann den AllMyBooks-Server dort dauerhaft laufen lassen. Das
+        ist der Aufbau <a href="#aufbau-b">B</a> und der stabilste von allen: Der
+        Bestand ist immer erreichbar, Zeitpläne für Sicherungen laufen
+        zuverlässig, und kein PC muss dafür eingeschaltet sein.
+      </p>
+
+      <p>Der Server braucht dabei zwei Dinge:</p>
+
+      <ul>
+        <li>eine <strong>PostgreSQL-Datenbank</strong> (Fassung 16), die üblicherweise als zweiter Container daneben läuft;</li>
+        <li>eingebundene <strong>Ordner</strong> für Cover, Personenfotos, Sicherungen und die Datenbankdateien — damit sie eine Aktualisierung des Containers überstehen.</li>
+      </ul>
+
+      <p>
+        Erreichbar ist die Oberfläche danach im Browser unter der Adresse des
+        Servers, zum Beispiel <code>http://192.168.1.50:3004</code>. Diese Adresse
+        tragen auch die Clients ein.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Feste Adresse vergeben</span>
+          <p>
+            Geben Sie dem Servergerät in Ihrem Router eine feste Adresse (meist
+            „DHCP-Reservierung“ oder „statischer Lease“). Ändert sich die Adresse
+            nach einem Neustart, finden gekoppelte Geräte den Hub nicht mehr und
+            müssen neu eingerichtet werden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="erster-start">Der erste Start</h2>
+
+      <p>
+        <strong>Eigenständig:</strong> Beim allerersten Start richtet die
+        Anwendung ihre Datenbank ein — das dauert einen Moment. Danach öffnet
+        sich die Bibliothek und führt durch die Einrichtung.
+      </p>
+
+      <p>
+        <strong>Als Client:</strong> Tragen Sie die Adresse Ihres Servers ein,
+        etwa <code>192.168.1.50:3004</code>. Die Anwendung prüft sie sofort und
+        sagt Ihnen, woran es liegt, wenn dort niemand antwortet. Danach melden
+        Sie sich mit Ihren gewohnten Zugangsdaten an.
+      </p>
+
+      <figure>
+        <img src="bilder/01-anmelden.webp" alt="Die Anmeldemaske von AllMyBooks mit Feldern für Benutzername und Passwort" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Die Anmeldung.</b> Sie erscheint bei jedem Start, sofern Sie sich nicht zuvor abgemeldet haben.</figcaption>
+      </figure>
+
+      <h3 id="konto-anlegen">Das erste Konto</h3>
+
+      <p>
+        Der erste angelegte Benutzer wird automatisch
+        <strong>Administrator</strong>. Neben Benutzername und Passwort werden
+        <strong>vier Sicherheitsfragen</strong> aus einer Liste von dreißig
+        verlangt.
+      </p>
+
+      <figure>
+        <img src="bilder/02-konto-einrichten.webp" alt="Die Maske zum Einrichten eines Kontos mit Passwortfeldern und der Auswahl von vier Sicherheitsfragen" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Konto einrichten.</b> Die vier Sicherheitsfragen sind der einzige Weg zurück, wenn das Passwort verloren geht.</figcaption>
+      </figure>
+
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Die Sicherheitsfragen sind der einzige Weg zurück</span>
+          <p>
+            Es gibt keinen Anbieter, der ein Passwort zurücksetzen könnte — die
+            Anwendung läuft bei Ihnen. Wählen Sie Fragen, deren Antworten Sie in
+            zwei Jahren noch genauso schreiben würden, und achten Sie auf
+            Schreibweise und Umlaute.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="reihenfolge">Die ersten Schritte — in dieser Reihenfolge</h2>
+
+      <p>
+        Nach dem Anmelden ist die Bibliothek leer. Die folgende Reihenfolge
+        erspart Nacharbeit: <strong>Die Punkte 1 bis 3 lohnen sich, bevor die
+        ersten Bücher drin sind.</strong>
+      </p>
+
+      <h3 id="schritt-sicherungen">1 — Sicherungen einrichten</h3>
+      <p><em>Einstellungen → Sicherungen</em></p>
+
+      <p>
+        Zuerst, nicht zuletzt: Eine Sicherung nützt erst ab dem Zeitpunkt, ab dem
+        sie läuft.
+      </p>
+
+      <figure>
+        <img src="bilder/18-einst-sicherungen.webp" alt="Einstellungen, Reiter Sicherungen, mit Zeitplan, Aufbewahrungsgrenzen und den Ordnerangaben" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Der Reiter „Sicherungen“.</b> Der Hinweis „Es wird nie aufgeräumt“ erscheint, solange beide Aufbewahrungsgrenzen leer sind.</figcaption>
+      </figure>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Einstellung</th><th>Was sie bewirkt</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Automatische Sicherung</strong></td><td>Häufigkeit und Uhrzeit, etwa täglich um 01:00.</td></tr>
+            <tr><td><strong>Aufbewahrung</strong></td><td>Nach wie vielen Tagen und ab welcher Anzahl alte Sicherungen aufgeräumt werden. Bleiben beide Felder leer, wird <strong>nie</strong> aufgeräumt — die Sicherungen sammeln sich dann dauerhaft an.</td></tr>
+            <tr><td><strong>Sicherungs-Ordner</strong></td><td>Wohin geschrieben wird. Bei eigenständigem Betrieb frei wählbar (etwa ein Ordner in Ihrer Cloud-Ablage), beim Server im Container fest — dort bestimmt ihn der eingebundene Ordner.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Eigenständiger Betrieb: der Zeitplan greift nur bei geöffneter Anwendung</span>
+          <p>
+            Die Zeitsteuerung sitzt im Server dieser Installation, und der wird
+            zusammen mit dem Programm beendet. Ist AllMyBooks zur eingestellten
+            Zeit geschlossen, wird <strong>keine Sicherung erstellt — und sie
+            wird auch nicht nachgeholt</strong>. Lassen Sie die Anwendung dafür
+            geöffnet oder erstellen Sie die Sicherung von Hand.
+          </p>
+          <p>Dasselbe gilt für den Thalia-Zeitplan.</p>
+        </div>
+      </div>
+
+      <h3 id="schritt-google">2 — Google-Books-Schlüssel hinterlegen</h3>
+      <p><em>Einstellungen → Import → Metadaten-Quellen</em></p>
+
+      <p>
+        AllMyBooks holt Buchdaten aus zwei Quellen: der <strong>Deutschen
+        Nationalbibliothek</strong> (voreingestellt, braucht nichts) und
+        <strong>Google Books</strong>. Google liefert vor allem die
+        <strong>Cover</strong> — die DNB liefert keine.
+      </p>
+
+      <p>
+        Ohne Schlüssel funktioniert Google trotzdem, aber nur mit rund
+        <strong>100 Abfragen pro Tag</strong>. Mit einem eigenen,
+        <strong>kostenlosen</strong> Schlüssel sind es etwa
+        <strong>1.000</strong>. Bei einem größeren Erstimport ist das der
+        Unterschied zwischen „läuft durch“ und „bricht nach 100 Büchern ab“.
+      </p>
+
+      <figure>
+        <img src="bilder/17-einst-import.webp" alt="Einstellungen, Reiter Import, mit den Feldern für DNB-Schnittstelle, Google-Books-Schlüssel und Thalia-Zugangsdaten" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Der Reiter „Import“.</b> Hinter „So holst du dir einen Google-Books-API-Key“ steckt eine Schritt-für-Schritt-Anleitung.</figcaption>
+      </figure>
+
+      <p>
+        Der Schlüssel wird <strong>verschlüsselt</strong> in der Datenbank
+        abgelegt.
+      </p>
+
+      <h3 id="schritt-lagerorte">3 — Lagerorte anlegen</h3>
+      <p><em>Lagerorte in der Seitenleiste</em></p>
+
+      <p>
+        Legen Sie fest, wo Ihre Bücher stehen: „Wohnzimmer-Regal“,
+        „Keller-Kiste“, „Thalia-Cloud“. Je Lagerort bestimmen Sie, welche
+        Ausgabearten dort zulässig sind — <strong>eine leere Liste bedeutet:
+        alle</strong>. Ein paar Lagerorte sind bereits angelegt; ergänzen Sie sie
+        <em>vor</em> dem Import, dann landen die Bücher gleich richtig.
+      </p>
+
+      <h3 id="schritt-import">4 — Bücher hineinbekommen</h3>
+      <p><em>Import in der Seitenleiste</em></p>
+
+      <p>
+        Mehrere Wege stehen nebeneinander — welcher passt, hängt davon ab, woher
+        Ihre Daten kommen. Alle Wege sind unter
+        <a href="#seite-import">Import</a> ausführlich beschrieben.
+      </p>
+
+      <div class="kasten kasten--gut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <div>
+          <span class="kasten__titel">Nichts geht verloren</span>
+          <p>
+            Bücher, bei denen beim Import etwas offen bleibt, landen im Reiter
+            <strong>Unbearbeitet</strong> und warten dort auf Sie — statt
+            stillschweigend zu verschwinden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="oberflaeche">Aufbau der Oberfläche</h2>
+
+      <p>
+        Links steht immer die Seitenleiste mit allen Bereichen, unten darin das
+        angemeldete Konto und der Abmelden-Knopf. Über <strong>Einklappen</strong>
+        wird die Leiste schmal, wenn Sie mehr Platz für den Bestand brauchen.
+      </p>
+
+      <p>
+        Welche Einträge Sie sehen, hängt von Ihrer Rolle ab: <em>Einstellungen</em>,
+        <em>Benutzer</em>, <em>Sicherungen</em> und <em>Geräte</em> sind
+        Administratoren vorbehalten.
+      </p>
+
+      <figure>
+        <img src="bilder/04-bibliothek.webp" alt="Die Bibliotheksansicht mit Filterleiste, Alphabet-Leiste und Buchcovern in Kachelform" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Bibliothek mit ausgeklappter Seitenleiste.</b> Der Bereich, in dem Sie die meiste Zeit verbringen werden.</figcaption>
+      </figure>
+
+      <h3 id="seite-uebersicht">Übersicht</h3>
+
+      <p>
+        Die Startseite fasst den Bestand in Zahlen: wie viele Titel, wie sie sich
+        auf Hardcover, Taschenbuch, E-Book und Boxsets verteilen, wie viele
+        gelesen und wie viele angefangen sind, und wie viele Seiten insgesamt in
+        Ihren Regalen stehen. Darunter folgen längstes und kürzestes Buch,
+        Lagerorte, häufigste Genres und die zuletzt hinzugefügten Titel.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Startseite frei wählbar</span>
+          <p>
+            Unter <em>Einstellungen → Anzeige</em> lässt sich festlegen, welche
+            Seite nach dem Anmelden erscheint. Wer die Übersicht selten braucht,
+            startet direkt in der Bibliothek.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="seite-bibliothek">Bibliothek</h3>
+
+      <p>Der Hauptbereich. Er hat drei Werkzeuge, die zusammenspielen:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Werkzeug</th><th>Was es tut</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Filterleiste</strong></td>
+              <td>Suche in Titel und Originaltitel, Sortierung, sowie Filter nach Quelle, Genre, Tags, Reihe, Lagerort, Kategorie, Autor und Lese-Status. Über <em>Mehr Filter</em> kommen weitere hinzu. Die beiden Symbole rechts filtern auf Favoriten und Merkliste.</td>
+            </tr>
+            <tr>
+              <td><strong>Alphabet-Leiste</strong></td>
+              <td>Springt zum Anfangsbuchstaben. <em>Alle</em> hebt die Einschränkung wieder auf.</td>
+            </tr>
+            <tr>
+              <td><strong>Anzeige-Regler</strong></td>
+              <td>Größe der Kacheln und Anzahl der Einträge je Seite. Rechts daneben steht immer, wie viele Titel die aktuelle Auswahl trifft.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Stapelverarbeitung</h4>
+
+      <p>
+        Der Knopf <strong>Stapel</strong> schaltet die Mehrfachauswahl ein. Damit
+        lassen sich für viele Titel auf einmal erledigen:
+      </p>
+
+      <ul>
+        <li>Als <strong>gelesen</strong> oder <strong>angefangen</strong> markieren — mit Datum und für ein wählbares Konto</li>
+        <li><strong>Favorit</strong> setzen oder entfernen</li>
+        <li>In einen anderen <strong>Lagerort</strong> verschieben</li>
+        <li><strong>Kategorien</strong> hinzufügen oder entfernen</li>
+        <li>Die Markierung <strong>Neu</strong> setzen oder aufheben</li>
+      </ul>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Ein Stapel-Lauf gilt sofort für alle Ausgewählten</span>
+          <p>
+            Es gibt kein Rückgängig. Prüfen Sie die Trefferzahl, bevor Sie
+            bestätigen — besonders beim Entfernen von Lese-Einträgen, denn das
+            löscht auch ältere und laufende Vermerke.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="seite-titel">Die Titelseite</h3>
+
+      <p>
+        Ein Klick auf eine Kachel öffnet den Titel. Hier stehen alle Angaben und
+        alle Ausgaben zusammen.
+      </p>
+
+      <figure>
+        <img src="bilder/15-titel-detail.webp" alt="Die Detailseite eines Titels mit Cover, Angaben und Ausgaben" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Eine Titelseite.</b> Kopfbereich mit Cover und Kerndaten, darunter Beschreibung, beteiligte Personen und die Ausgaben.</figcaption>
+      </figure>
+
+      <p>Was Sie hier tun können:</p>
+
+      <ul>
+        <li><strong>Angaben bearbeiten</strong> — Titel, Untertitel, Originaltitel, Verlag, Jahr, Seitenzahl, Sprache, Beschreibung, Reihe und Bandnummer</li>
+        <li><strong>Personen zuordnen</strong> — Autor, Übersetzer, Illustrator, Herausgeber, Vorwort</li>
+        <li><strong>Lesen festhalten</strong> — angefangen und beendet, je Konto getrennt</li>
+        <li><strong>Verleihen</strong> — an wen und seit wann; die Rückgabe wird ebenfalls vermerkt</li>
+        <li><strong>Cover pflegen</strong> — hochladen, von einer Adresse holen, fotografieren, zuschneiden und die Perspektive geraderücken</li>
+        <li><strong>Ausgaben verwalten</strong> — je Ausgabe eigene ISBN, eigener Einband, eigener Lagerort und eigenes Cover</li>
+      </ul>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Auf Touch-Geräten: „Foto aufnehmen“</span>
+          <p>
+            In der Cover-Bearbeitung erscheint auf Geräten mit Touch-Bedienung
+            ein eigener Knopf, der direkt die Kamera öffnet. Auf einem
+            Maus-Rechner fehlt er, weil er dort dasselbe täte wie der
+            Datei-Knopf daneben.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="seite-personen">Personen</h3>
+
+      <p>
+        Alle Autorinnen, Autoren, Übersetzer, Illustratoren und Herausgeber Ihres
+        Bestands. Die Detailseite einer Person zeigt ihre Bücher, ein Foto und
+        eine Kurzbiografie.
+      </p>
+
+      <figure>
+        <img src="bilder/06-personen.webp" alt="Die Personenübersicht mit Suchfeld und Kacheln je Person" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Personen.</b> Ohne Anreicherung stehen hier nur Initialen — Foto und Biografie kommen aus Wikipedia bzw. Wikidata.</figcaption>
+      </figure>
+
+      <p>
+        Die Anreicherung läuft über <em>Import → Personen-Anreicherung
+        (Wikipedia)</em> und wird Ihnen zur Bestätigung vorgelegt, statt einfach
+        zu geschehen.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Bei Ein-Wort-Namen genau hinsehen</span>
+          <p>
+            Namen, die nur aus einem Wort bestehen, lassen sich schlecht
+            zuordnen. Prüfen Sie den Vorschlag, bevor Sie ihn übernehmen —
+            sonst hängt an „Noah“ die biblische Figur.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="seite-kategorien">Kategorien und Genres</h3>
+
+      <p>
+        <strong>Genres</strong> stammen aus einer gepflegten Liste und werden
+        beim Anlegen eines Titels automatisch zugeordnet. Wo die Automatik unsicher
+        ist, legt sie einen Vorschlag zur Entscheidung ab — sichtbar an der Zahl
+        neben <em>Import</em> und <em>Genre-Cleanup</em>.
+      </p>
+
+      <p>
+        <strong>Kategorien</strong> legen Sie selbst an, für alles Weitere:
+        „Geschenkidee“, „Signiert“, „Doppelt vorhanden“. Ein Titel kann in
+        beliebig vielen Kategorien stehen.
+      </p>
+
+      <figure>
+        <img src="bilder/07-kategorien.webp" alt="Die Kategorienverwaltung" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Kategorien.</b> Ein Klick auf eine Kategorie zeigt die Bibliothek, auf genau diese Kategorie gefiltert.</figcaption>
+      </figure>
+
+      <h3 id="seite-lagerorte">Lagerorte</h3>
+
+      <figure>
+        <img src="bilder/05-lagerorte.webp" alt="Die Lagerortverwaltung mit der Liste der Regale und den je Regal erlaubten Ausgabearten" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Lagerorte.</b> Die farbigen Kürzel je Eintrag zeigen, welche Ausgabearten dort zulässig sind.</figcaption>
+      </figure>
+
+      <p>
+        Links die Liste, rechts der Inhalt des ausgewählten Lagerorts.
+        <strong>Kein Lagerort</strong> ganz oben sammelt alles, was noch
+        keinem Ort zugeordnet ist — eine praktische Aufräumliste.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Leer heißt alle</span>
+          <p>
+            Wird bei einem Lagerort <em>keine</em> Ausgabeart angehakt, sind dort
+            <strong>alle</strong> erlaubt — nicht keine. Das gilt an jeder
+            Stelle, an der diese Regel greift.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="seite-favoriten">Favoriten</h3>
+
+      <p>
+        Alles, was Sie mit dem Herz markiert haben — je Konto getrennt. Zwei
+        Personen im selben Haushalt haben also verschiedene Favoritenlisten.
+      </p>
+
+      <h3 id="seite-import">Import</h3>
+
+      <p>
+        Der Bereich mit den meisten Möglichkeiten. Jeder Reiter ist ein eigener
+        Weg, Bücher hineinzubekommen.
+      </p>
+
+      <h4>ISBN-/Titel-Suche</h4>
+      <figure>
+        <img src="bilder/21-import-isbn.webp" alt="Der Reiter ISBN- und Titel-Suche mit Eingabefeld" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Der übliche Weg für einzelne Bücher.</b> ISBN eintippen oder nach Titel und Autor suchen.</figcaption>
+      </figure>
+      <p>
+        Auf einem Gerät mit Kamera lässt sich der Strichcode auf der Rückseite
+        des Buchs direkt einlesen, statt die dreizehn Ziffern abzutippen.
+      </p>
+
+      <h4>Bookshelf-CSV und Meine Bibliothek XLSX</h4>
+      <figure>
+        <img src="bilder/20-import-bookshelf.webp" alt="Der Reiter Bookshelf-CSV mit Dateiauswahl und der Zuordnung des Lesestatus" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Umzug aus einem anderen Programm.</b> Ein Assistent führt durch die Zuordnung der Regale.</figcaption>
+      </figure>
+      <p>
+        Zwei Wege für den Umstieg aus <em>iCollect Bookshelf</em> bzw.
+        <em>Meine Bibliothek</em>. Der Regalwert aus der Datei wird als Lagerort
+        übernommen; nur wo keiner steht, greift der Standard-Lagerort des Laufs.
+      </p>
+
+      <h4>Thalia-Sync</h4>
+      <figure>
+        <img src="bilder/23-import-thalia.webp" alt="Der Reiter Thalia-Sync mit Hinweis auf fehlende Zugangsdaten, Zustand des letzten Laufs und Zeitplan" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Thalia-Sync.</b> Ohne hinterlegte Zugangsdaten bleibt der Knopf gesperrt und verweist auf die Einstellungen.</figcaption>
+      </figure>
+      <p>
+        Übernimmt die Angaben zu Ihren gekauften E-Books aus der Tolino-Cloud.
+        Zugangsdaten werden vorher unter <em>Einstellungen → Import</em>
+        hinterlegt; das Passwort wird verschlüsselt gespeichert und ist danach
+        auch für Sie nicht mehr auslesbar. Bitte lesen Sie dazu den Abschnitt
+        <a href="#rechtliches">Rechtliches</a>.
+      </p>
+      <p>E-Books ohne ISBN landen in <em>Unbearbeitet</em>, statt zu verschwinden.</p>
+
+      <h4>Unbearbeitet — der Stapel</h4>
+      <figure>
+        <img src="bilder/22-import-unbearbeitet.webp" alt="Der Reiter Unbearbeitet mit Karten je offenem Eintrag" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Der Stapel.</b> Jede Karte ist ein Buch, bei dem noch etwas fehlt.</figcaption>
+      </figure>
+      <p>
+        Jeder Eintrag lässt sich einzeln ergänzen und übernehmen. Markieren Sie
+        <strong>zwei oder mehr</strong>, erscheint oben eine Sammelleiste, und
+        die Knöpfe auf den Karten werden gesperrt — so ist immer nur ein Weg
+        offen und es bleibt klar, worauf sich eine Eingabe bezieht.
+      </p>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">„Aus jedem Eintrag übernehmen“ steht nicht ohne Grund voreingestellt</span>
+          <p>
+            Beim Lagerort in der Sammelleiste ist das die Vorgabe. Wählen Sie
+            stattdessen einen festen Ort, bekommen <em>alle</em> markierten
+            Bücher diesen — auch die, die längst den richtigen hatten.
+          </p>
+        </div>
+      </div>
+
+      <h4>Metadaten ergänzen</h4>
+      <p>
+        Sucht für Titel, denen Angaben fehlen, noch einmal nach. Sinnvoll nach
+        einem großen Import oder nachdem Sie einen Google-Books-Schlüssel
+        hinterlegt haben.
+      </p>
+
+      <h4>Genre-Anreicherung und Personen-Anreicherung</h4>
+      <p>
+        Zwei Vorschlagslisten: Genres, bei denen die Automatik unsicher war, und
+        Personen, zu denen es einen Wikipedia-Eintrag geben könnte. Beides wird
+        Ihnen vorgelegt — entschieden wird nichts ohne Sie.
+      </p>
+
+      <h4>AI-Cover</h4>
+      <figure>
+        <img src="bilder/24-import-aicover.webp" alt="Der Reiter AI-Cover mit dem Bereich zum Hochladen abfotografierter Buchcover" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>AI-Cover.</b> Rein freiwillig — ohne hinterlegten Schlüssel bleibt es bei der Texterkennung, die immer mitläuft.</figcaption>
+      </figure>
+      <p>
+        Fotografieren Sie ein Cover ab; die Erkennung liest Titel und Autor
+        heraus und kann den Klappentext von der Rückseite als Beschreibung
+        übernehmen. Hinterlegbar sind ein <strong>Gemini-</strong> oder
+        <strong>Claude-Schlüssel</strong> oder die Adresse einer
+        <strong>Ollama</strong>-Installation auf dem eigenen Rechner. Über die
+        Reihenfolge legen Sie fest, wer zuerst gefragt wird.
+      </p>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Ollama im Container</span>
+          <p>
+            Dort zeigt <code>localhost</code> auf den Container selbst. Tragen
+            Sie die Netzwerkadresse des Rechners ein, etwa
+            <code>http://192.168.1.50:11434</code>, und benutzen Sie ein Modell,
+            das Bilder versteht.
+          </p>
+        </div>
+      </div>
+
+      <h4>Manuell</h4>
+      <figure>
+        <img src="bilder/25-import-manuell.webp" alt="Der Reiter Manuell mit einem leeren Formular für einen neuen Titel" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Von Hand.</b> Für alles, was keine Quelle findet — alte Ausgaben, Selbstverlag, Vereinschroniken.</figcaption>
+      </figure>
+
+      <h3 id="seite-geraete">Geräte</h3>
+
+      <figure>
+        <img src="bilder/10-geraete.webp" alt="Die Geräteverwaltung mit dem Namen des Hub, seinen Adressen und der Liste gekoppelter Geräte" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Geräte.</b> Oben der Hub selbst mit den Adressen, unter denen er erreichbar ist; darunter alle gekoppelten Geräte.</figcaption>
+      </figure>
+
+      <p>Hier verwalten Sie, welche Handys und Tablets mit Ihrem Hub arbeiten dürfen:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Aktion</th><th>Wirkung</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Gerät koppeln</strong></td><td>Erzeugt QR-Code und Kopplungscode für ein neues Gerät.</td></tr>
+            <tr><td><strong>Widerrufen</strong></td><td>Das Gerät gleicht nicht mehr ab, bleibt aber in der Liste. Lässt sich jederzeit wieder freigeben.</td></tr>
+            <tr><td><strong>Wieder freigeben</strong></td><td>Nimmt einen Widerruf zurück — ohne dass am Gerät selbst etwas zu tun wäre.</td></tr>
+            <tr><td><strong>Endgültig entfernen</strong></td><td>Löscht den Eintrag. Für dieses Gerät ist danach eine neue Kopplung nötig.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="seite-sicherungen">Sicherungen</h3>
+
+      <figure>
+        <img src="bilder/09-sicherungen.webp" alt="Die Sicherungsseite mit der Liste vorhandener Sicherungen" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Sicherungen.</b> Hier erstellen Sie eine von Hand, laden eine herunter oder spielen eine zurück.</figcaption>
+      </figure>
+
+      <p>
+        Der Zeitplan dafür steht unter <em>Einstellungen → Sicherungen</em>.
+        Ausführlich beschrieben ist der ganze Vorgang unter
+        <a href="#sichern-wiederherstellen">Sichern und wiederherstellen</a>.
+      </p>
+
+      <h3 id="seite-benutzer">Benutzer</h3>
+
+      <figure>
+        <img src="bilder/13-benutzer.webp" alt="Die Benutzerverwaltung mit Konten, Rollen und Status" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Benutzer.</b> Jedes Haushaltsmitglied bekommt ein eigenes Konto.</figcaption>
+      </figure>
+
+      <p>Es gibt zwei Rollen:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Rolle</th><th>Darf</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Administrator</strong></td><td>Alles — einschließlich Einstellungen, Benutzerverwaltung, Sicherungen und Geräteverwaltung.</td></tr>
+            <tr><td><strong>Benutzer</strong></td><td>Den Bestand ansehen und pflegen, eigene Lese-Einträge und Favoriten setzen. Keine Verwaltungsbereiche.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Ein neu angelegtes Konto bekommt ein Anfangspasswort, das der Benutzer
+        beim ersten Anmelden ändern muss; dabei legt er auch seine
+        Sicherheitsfragen fest.
+      </p>
+
+      <h3 id="seite-einstellungen">Einstellungen</h3>
+
+      <p>Die Einstellungen sind in fünf Reiter geteilt:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Reiter</th><th>Inhalt</th><th>Speichern-Knopf</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Anzeige</strong></td><td>Helles oder dunkles Thema, Startseite nach dem Anmelden.</td><td>nein — gilt sofort</td></tr>
+            <tr><td><strong>Bibliothek</strong></td><td>Nach wie vielen Tagen die Markierung „Neu“ von selbst verfällt.</td><td>ja</td></tr>
+            <tr><td><strong>Import</strong></td><td>Metadaten-Quellen, Google-Books-Schlüssel, Thalia-Zugangsdaten, KI-Erkennung.</td><td>ja</td></tr>
+            <tr><td><strong>Sicherungen</strong></td><td>Zeitplan, Aufbewahrung, Ordner — und die Gefahrenzone.</td><td>ja</td></tr>
+            <tr><td><strong>App</strong></td><td>Aktualisierung, lokaler Bestand, Fassungsangaben, ausführliches Protokoll.</td><td>nein</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure>
+        <img src="bilder/19-einst-app.webp" alt="Einstellungen, Reiter App, mit Angaben zur installierten Fassung und zum Datenbankschema" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Der Reiter „App“.</b> „Fassung des Servers“ meint bewusst den Server — die App auf Ihrem Handy kann eine andere Nummer tragen.</figcaption>
+      </figure>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Auch ohne Administratorrechte erreichbar</span>
+          <p>
+            Wer kein Administrator ist, sieht in den Einstellungen nur den Reiter
+            <em>App</em> — dort steht auf Android die Aktualisierungskarte, und
+            das ist der einzige Weg zu einer neuen Fassung der App.
+          </p>
+        </div>
+      </div>
+
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Die Gefahrenzone</span>
+          <p>
+            Ganz unten im Reiter <em>Sicherungen</em> steht der Knopf, der alle
+            Titel, Ausgaben, Cover, Lese-Einträge, Verleihungen, Favoriten und
+            Stapel-Einträge löscht. <strong>Erstellen Sie vorher eine
+            Sicherung.</strong> Benutzerkonten und Lagerorte bleiben erhalten.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="handy-koppeln">Das Handy anbinden</h2>
+
+      <p>
+        Die App braucht einen Hub. Die Verbindung entsteht über einen QR-Code,
+        den der Hub anzeigt.
+      </p>
+
+      <ol class="schritte">
+        <li>
+          <strong>Am Hub den Code erzeugen</strong>
+          <p>
+            Am Rechner, auf dem der Server läuft: <em>Geräte</em> öffnen, dann
+            <strong>Gerät koppeln</strong>. Es erscheinen ein QR-Code, darunter
+            die Adresse und ein achtstelliger Kopplungscode.
+          </p>
+        </li>
+        <li>
+          <strong>In der App scannen</strong>
+          <p>
+            In der App auf <strong>QR-Code aufnehmen</strong> tippen und den
+            Code abfilmen. Fertig — die App merkt sich die Verbindung dauerhaft.
+          </p>
+        </li>
+        <li>
+          <strong>Anmelden</strong>
+          <p>
+            Danach melden Sie sich mit Ihrem gewohnten Konto an. Kopplung und
+            Anmeldung sind zwei verschiedene Dinge: Die Kopplung verbindet das
+            <em>Gerät</em> mit dem Hub, die Anmeldung weist Sie als
+            <em>Person</em> aus.
+          </p>
+        </li>
+      </ol>
+
+      <figure>
+        <img src="bilder/12-koppeln-qr.webp" alt="Der Kopplungsdialog mit QR-Code, Adresse des Hub, achtstelligem Kopplungscode und Restlaufzeit" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption>
+          <b>Der Kopplungsdialog.</b> Beispielansicht — QR-Code, Adresse und Code
+          sind für diese Anleitung durch Platzhalter ersetzt. Der Code ist nur
+          kurz gültig und lässt sich einmal einlösen.
+        </figcaption>
+      </figure>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Beim Abtippen ist die Adresse die häufigste Fehlerquelle</span>
+          <p>
+            Sie muss die Form <code>http://192.168.1.50:3004</code> haben — mit
+            Punkten zwischen den Zahlen, ohne Leerzeichen. Die Bildschirmtastatur
+            macht aus einem Punkt gern ein Leerzeichen, und eine fehlende Ziffer
+            sieht man leicht. <strong>Der QR-Code umgeht das vollständig.</strong>
+          </p>
+          <p>
+            Werden mehrere Adressen angeboten, steht die aus Ihrem Heimnetz
+            zuerst.
+          </p>
+        </div>
+      </div>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div>
+          <span class="kasten__titel">Verbunden wird nur ins eigene Netz</span>
+          <p>
+            Eine Adresse, die aus dem Heimnetz hinausführt, lehnt die App ab —
+            unverschlüsselt gingen dort sonst Benutzername und Passwort hinaus.
+            Für einen Server außerhalb braucht es eine Adresse mit
+            <code>https://</code>.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="handy-funktionen">Was die App kann</h3>
+
+      <p>
+        Sie zeigt Ihre Bibliothek, Personen, Cover und Lagerorte, markiert Bücher
+        als gelesen, setzt Favoriten und liest ISBN-Codes mit der Kamera ein.
+      </p>
+
+      <p>
+        Damit sie unterwegs nicht leer bleibt, legt sie eine
+        <strong>Lesekopie</strong> des Bestands auf dem Gerät an — die Bibliothek
+        und die Titelseiten sind dadurch auch ohne Verbindung sichtbar. Der
+        Bestand selbst liegt weiterhin beim Hub; sobald die Verbindung wieder
+        steht, gleicht die App ab.
+      </p>
+
+      <h3 id="mehrere-server">Mehrere Server</h3>
+
+      <p>
+        Die App kann mehrere Hubs gleichzeitig kennen — etwa den NAS zu Hause und
+        die eigenständige Installation auf dem Notebook. Umgeschaltet wird über
+        die Seitenleiste, <strong>ohne neu zu koppeln und ohne sich neu
+        anzumelden</strong>.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">„Weiteren Server koppeln“ ist nicht „Verbindung trennen“</span>
+          <p>
+            Der erste Eintrag nimmt einen Hub <em>zusätzlich</em> auf und wirft
+            nichts weg. Der zweite entfernt den gerade aktiven samt seiner
+            lokalen Lesekopie und fragt vorher nach.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="updates">Aktualisierungen</h2>
+
+      <h3 id="updates-windows">Windows</h3>
+
+      <p>
+        Das Programm prüft <strong>beim Start und danach stündlich</strong>, ob
+        eine neue Fassung vorliegt, und lädt sie <strong>im Hintergrund</strong>.
+        Sie können dabei normal weiterarbeiten. Erst wenn der Download fertig
+        ist, werden Sie gefragt: <em>jetzt neu starten</em> oder <em>später</em>.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Bei „Später“ passiert nichts von selbst — auch nicht beim Beenden</span>
+          <p>
+            Eingespielt wird es über <strong>„Aktualisieren auf &lt;Fassung&gt;“</strong>
+            im Symbol neben der Uhr. Das ist Absicht: Früher installierte sich das
+            Update beim Beenden von selbst, und damit war die Wahl „Später“
+            wertlos, sobald man das Fenster versehentlich schloss.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Der Eintrag im Symbol neben der Uhr sagt Ihnen jederzeit, woran Sie sind:
+      </p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Was dort steht</th><th>Was es bedeutet</th></tr></thead>
+          <tbody>
+            <tr><td><em>Auf Aktualisierungen prüfen</em></td><td>Noch nicht nachgesehen — ein Klick startet die Suche.</td></tr>
+            <tr><td><em>Suche nach Aktualisierungen …</em></td><td>Läuft gerade.</td></tr>
+            <tr><td><em>Aktuell — erneut prüfen</em></td><td>Zuletzt war nichts Neues da.</td></tr>
+            <tr><td><em>Lädt Fassung X … 42 %</em></td><td>Ein Update kommt gerade herunter.</td></tr>
+            <tr><td><em>Aktualisieren auf X</em></td><td>Fertig geladen, wartet auf Ihren Klick.</td></tr>
+            <tr><td><em>Prüfung fehlgeschlagen — erneut versuchen</em></td><td>Kam nicht durch, meist fehlt die Internetverbindung.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Schlägt die Prüfung fehl, bleibt es ansonsten still — Ihre Bibliothek ist
+        davon nicht betroffen, sie läuft über Ihren eigenen Server.
+      </p>
+
+      <h3 id="updates-android">Android</h3>
+
+      <p>
+        Die App meldet sich beim Start, wenn eine neue Fassung bereitliegt.
+        Nachsehen können Sie jederzeit selbst unter <em>Einstellungen →
+        App-Aktualisierung</em>; dort steht auch die installierte Fassung.
+      </p>
+
+      <p>
+        Anders als bei Windows lädt die App <strong>nicht</strong> von selbst im
+        Hintergrund. Sie prüft nur; heruntergeladen wird erst, wenn Sie
+        zustimmen.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Beim ersten Mal fragt Android nach einer Erlaubnis</span>
+          <p>
+            „Unbekannte Apps installieren“. Der Weg dorthin ist schwer zu finden,
+            deshalb führt ein Knopf direkt hin. Daneben steht immer der Weg von
+            Hand über den Release-Bereich, falls etwas klemmt.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="updates-container">Server im Container</h3>
+
+      <p>
+        Dort wird über die Oberfläche Ihres Docker-Systems aktualisiert. Ein
+        Container kann sein eigenes Abbild nicht austauschen — deshalb gibt es in
+        den Einstellungen bewusst keinen Update-Knopf.
+      </p>
+
+      <div class="kasten kasten--gut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <div>
+          <span class="kasten__titel">Ihre Daten überstehen jedes Update</span>
+          <p>
+            Auch die hinterlegten Schlüssel und das Thalia-Konto. Eine
+            Deinstallation lässt den Datenordner ebenfalls stehen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="sichern-wiederherstellen">Sichern und wiederherstellen</h2>
+
+      <p>
+        Eine Sicherung enthält <strong>beides</strong>: die Datenbank und die
+        Bilddateien. Sie ist damit vollständig — und zugleich der Weg, den
+        Bestand auf einen anderen Rechner umzuziehen.
+      </p>
+
+      <h3 id="sicherung-erstellen">Eine Sicherung erstellen</h3>
+
+      <p>
+        Über <em>Sicherungen</em> in der Seitenleiste, Knopf <strong>Sicherung
+        erstellen</strong>. Von dort lässt sie sich auch herunterladen — sinnvoll,
+        um sie an einen zweiten Ort zu legen.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Eine Sicherung auf derselben Platte ist eine halbe Sicherung</span>
+          <p>
+            Sie hilft gegen Fehlbedienung, nicht gegen einen Plattenschaden.
+            Legen Sie den Sicherungs-Ordner auf ein anderes Laufwerk oder in eine
+            Cloud-Ablage — bei eigenständigem Betrieb ist er frei wählbar.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="sicherung-einspielen">Eine Sicherung zurückspielen</h3>
+
+      <p>
+        Ebenfalls über <em>Sicherungen</em>. Der Vorgang dauert bei einem
+        gewachsenen Bestand einige Minuten — es werden hunderte Bilddateien
+        bewegt. Ein Fortschrittsbalken zeigt, in welchem der Schritte er gerade
+        steckt.
+      </p>
+
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Zurückspielen ersetzt den gesamten Bestand</span>
+          <p>
+            Auch die <strong>Benutzerkonten</strong>. Sie melden sich danach mit
+            den Zugangsdaten an, die zum Zeitpunkt der Sicherung galten — nicht
+            mit denen, die Sie eben noch benutzt haben. Während des Vorgangs
+            weist die Anwendung schreibende Zugriffe ab; das ist gewollt.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="umzug">Umzug auf einen anderen Rechner</h3>
+
+      <p>Der Weg ist derselbe wie beim Wiederherstellen, nur über zwei Geräte:</p>
+
+      <ol class="schritte">
+        <li><strong>Auf dem alten Gerät</strong><p>Sicherung erstellen und herunterladen.</p></li>
+        <li><strong>Auf dem neuen Gerät</strong><p>AllMyBooks installieren und ein erstes Konto anlegen — das braucht die Anwendung, um überhaupt bedienbar zu sein.</p></li>
+        <li><strong>Sicherung hochladen und zurückspielen</strong><p>Danach gelten wieder die Konten aus der Sicherung; das eben angelegte ist damit hinfällig.</p></li>
+      </ol>
+
+      <p>
+        Der Umzug funktioniert <strong>in beide Richtungen</strong> — vom
+        Container auf einen Windows-PC ebenso wie umgekehrt. Die Pfade der
+        Bilddateien werden dabei automatisch umgeschrieben.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="fehlersuche">Fehlersuche</h2>
+
+      <details>
+        <summary>Das Handy findet den Hub nicht mehr</summary>
+        <p>Der häufigste Grund ist eine geänderte Adresse des Servers.</p>
+        <ul>
+          <li>Läuft der Server überhaupt? Bei eigenständigem Betrieb muss das Programm auf dem anderen Rechner <strong>geöffnet</strong> sein.</li>
+          <li>Hat der Server noch dieselbe Adresse? Vergleichen Sie sie mit der unter <em>Geräte</em> angezeigten.</li>
+          <li>Sind beide Geräte im selben Netz? Ein Gastnetz oder ein aktives VPN auf dem Handy trennt sie.</li>
+        </ul>
+        <p>Dauerhafte Abhilfe: dem Servergerät im Router eine feste Adresse geben.</p>
+      </details>
+
+      <details>
+        <summary>Die App zeigt „Diese Kopplung gilt nicht mehr“</summary>
+        <p>
+          Das Gerät wurde am Hub widerrufen oder entfernt. Wurde es
+          versehentlich widerrufen, geben Sie es unter <em>Geräte</em> wieder
+          frei und tippen in der App auf <strong>Erneut versuchen</strong> —
+          Ihre lokale Lesekopie bleibt dabei erhalten.
+        </p>
+        <p>
+          <em>Neu koppeln</em> ist der Weg für den Fall, dass der Eintrag wirklich
+          gelöscht wurde. Er wirft die lokale Kopie weg.
+        </p>
+      </details>
+
+      <details>
+        <summary>Nach einer Neuinstallation der App sind die alten Einstellungen wieder da</summary>
+        <p>
+          Android sichert die Daten der App und spielt sie bei einer
+          Neuinstallation wieder ein — samt alter Serveradresse.
+          <strong>Deinstallieren behebt einen Verbindungsfehler deshalb
+          nicht.</strong>
+        </p>
+        <p>
+          Der Weg, der wirkt: <em>Einstellungen → Apps → AllMyBooks → Speicher →
+          Daten löschen</em>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Der eigenständige Server startet nicht</summary>
+        <p>
+          Eine häufige Ursache ist ein <strong>durch Windows reservierter
+          Portbereich</strong>. Das passiert vor allem, wenn parallel Docker
+          Desktop läuft — dessen Hintergrunddienst belegt ganze Bereiche, auch
+          ohne dass ein Container läuft.
+        </p>
+        <p>
+          <strong>Sofort hilft:</strong> Docker Desktop beenden und AllMyBooks
+          neu starten.
+        </p>
+      </details>
+
+      <details>
+        <summary>Ein Import bricht ab oder findet keine Cover</summary>
+        <p>
+          Meist ist die Tagesgrenze von Google Books erreicht: ohne eigenen
+          Schlüssel rund 100 Abfragen. Hinterlegen Sie einen
+          <a href="#schritt-google">kostenlosen Schlüssel</a> — damit sind es
+          etwa 1.000.
+        </p>
+        <p>
+          Die DNB liefert grundsätzlich keine Cover; Titel, die nur dort gefunden
+          wurden, bleiben ohne Bild, bis Sie eines hinzufügen.
+        </p>
+      </details>
+
+      <details>
+        <summary>Der Thalia-Abgleich meldet einen Fehler</summary>
+        <ul>
+          <li>Stimmen Benutzername und Passwort? Das Passwort ist nach dem Speichern nicht mehr auslesbar — tragen Sie es im Zweifel neu ein.</li>
+          <li>Läuft schon ein Abgleich? Zwei gleichzeitig gehen nicht.</li>
+          <li>Bleibt es dabei, kann es auch an einer Änderung auf Thalias Seite liegen. Diese Funktion arbeitet mit einer Schnittstelle, die sich ohne Ankündigung ändern kann.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Ein Buch steht doppelt in der Bibliothek</summary>
+        <p>
+          Meist stammen die beiden aus verschiedenen Quellen und tragen
+          unterschiedliche ISBN — etwa Taschenbuch und E-Book. Gemeint war
+          vermutlich <em>ein</em> Titel mit <em>zwei</em> Ausgaben.
+        </p>
+        <p>
+          Öffnen Sie den Titel, der bleiben soll, legen Sie dort die zweite
+          Ausgabe an und löschen Sie anschließend den doppelten Titel.
+        </p>
+      </details>
+
+      <details>
+        <summary>Ich habe mein Passwort vergessen</summary>
+        <p>
+          Über <strong>Passwort vergessen?</strong> auf der Anmeldemaske. Sie
+          beantworten Ihre Sicherheitsfragen und vergeben ein neues Passwort.
+        </p>
+        <p>
+          Sind auch die Antworten nicht mehr bekannt, kann ein Administrator das
+          Konto zurücksetzen. Gibt es keinen zweiten Administrator, bleibt nur
+          das Zurückspielen einer älteren Sicherung.
+        </p>
+      </details>
+
+      <details>
+        <summary>Die Oberfläche bleibt bei einem Ladebalken stehen</summary>
+        <p>
+          Prüfen Sie zuerst, ob der Server noch antwortet — im Browser die
+          Adresse aufrufen, die unter <em>Geräte</em> steht. Antwortet er dort,
+          hilft meist ein Neuladen der Seite.
+        </p>
+        <p>
+          Bleibt es dabei, melden Sie es bitte: Der Bericht enthält das Protokoll
+          der Minuten davor, und genau daran lässt sich so etwas finden.
+        </p>
+      </details>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="melden">Einen Fehler melden</h2>
+
+      <p>
+        In der App und im Windows-Programm: <em>Melden</em> in der Seitenleiste.
+        Sie wählen zuerst, worum es geht — <strong>Fehler</strong>,
+        <strong>Verbesserung</strong> oder <strong>Absturz</strong> —, die Fragen
+        richten sich danach. Ein GitHub-Konto brauchen Sie nicht.
+      </p>
+
+      <figure>
+        <img src="bilder/14-melden.webp" alt="Die Melde-Seite mit Auswahlfeldern und zwei Textfeldern" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><b>Melden.</b> Ausfüllen müssen Sie nur eines der beiden Textfelder — ein Bericht ohne Worte ist mehr wert als keiner.</figcaption>
+      </figure>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Ihre Beschreibung wird öffentlich</span>
+          <p>
+            Sie erscheint als Eintrag im Release-Bereich, damit andere dasselbe
+            Problem wiedererkennen. <strong>Das technische Protokoll geht nicht
+            öffentlich mit.</strong> Schreiben Sie deshalb nichts in die
+            Textfelder, was nicht jeder lesen soll.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Unter <strong>„Anzeigen, was gesendet wird“</strong> stehen beide Teile
+        getrennt und wörtlich, <em>bevor</em> Sie absenden. Von dort lässt sich
+        der vollständige Bericht auch in die Zwischenablage legen.
+      </p>
+
+      <p>
+        <strong>Endet die App unerwartet</strong>, fragt sie beim nächsten Start,
+        ob Sie das melden möchten — mit dem Protokoll der Minuten davor. Nur eine
+        Frage; von selbst wird nichts gesendet.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="datenschutz">Datenschutz</h2>
+
+      <p>
+        Ihr Bestand liegt auf Ihren Geräten. Es gibt keine Anmeldung bei einem
+        Dienst, keine Übertragung Ihrer Bibliothek irgendwohin und keine
+        Auswertung Ihres Nutzungsverhaltens.
+      </p>
+
+      <p>Verbindungen nach außen entstehen nur an diesen Stellen:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Wohin</th><th>Wofür</th><th>Wann</th></tr></thead>
+          <tbody>
+            <tr><td>Deutsche Nationalbibliothek</td><td>Buchdaten zu einer ISBN</td><td>Bei Import und Metadaten-Suche</td></tr>
+            <tr><td>Google Books</td><td>Buchdaten und Cover</td><td>Bei Import und Metadaten-Suche</td></tr>
+            <tr><td>Wikipedia / Wikidata</td><td>Fotos und Kurzbiografien</td><td>Nur bei der Personen-Anreicherung</td></tr>
+            <tr><td>Thalia / Tolino</td><td>Angaben zu Ihren E-Books</td><td>Nur wenn Sie den Abgleich einrichten</td></tr>
+            <tr><td>Gemini, Claude oder Ollama</td><td>Cover-Erkennung</td><td>Nur wenn Sie einen Schlüssel hinterlegen. Ollama läuft auf Ihrem eigenen Rechner.</td></tr>
+            <tr><td>GitHub</td><td>Prüfung auf neue Fassungen, Fehlerberichte</td><td>Beim Start bzw. wenn Sie etwas melden</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Zugangsdaten — der Google-Schlüssel, das Thalia-Passwort, die
+        KI-Schlüssel — werden <strong>verschlüsselt</strong> gespeichert. Das
+        Thalia-Passwort ist nach dem Speichern auch für Sie nicht mehr auslesbar;
+        bei Bedarf tragen Sie es einfach neu ein.
+      </p>
+
+      <p>
+        <strong>Diese Handbuchseite selbst</strong> lädt nichts von fremden
+        Servern nach — keine Schriftarten, keine Zählpixel, keine Skripte
+        Dritter. Sie setzt einen einzigen Eintrag im Speicher Ihres Browsers,
+        wenn Sie das helle oder dunkle Thema ausdrücklich wählen.
+      </p>
+    </section>
+
+    <!-- ============================================================= -->
+    <section>
+      <h2 id="rechtliches">Rechtliches</h2>
+
+      <p>
+        AllMyBooks ist ein <strong>privates Projekt</strong> und steht <strong>in
+        keiner Verbindung zu Thalia, tolino, Google oder einem anderen der
+        genannten Anbieter</strong>. Es wird von ihnen weder herausgegeben noch
+        geprüft oder unterstützt. <em>Thalia</em>, <em>tolino</em> und die
+        übrigen genannten Namen sind Marken ihrer jeweiligen Inhaber und werden
+        hier ausschließlich genannt, um zu beschreiben, womit die Software
+        zusammenarbeitet.
+      </p>
+
+      <h3 id="rechtliches-thalia">Zum Thalia-Abgleich</h3>
+
+      <p>
+        Der Abgleich meldet sich mit <strong>Ihren eigenen Zugangsdaten</strong>
+        an und liest <strong>ausschließlich die Daten Ihres eigenen
+        Kontos</strong>: Titel, Autor, ISBN, Cover und Lesefortschritt Ihrer
+        gekauften E-Books.
+      </p>
+
+      <p>
+        <strong>Nicht</strong> heruntergeladen werden die Buchdateien. Es wird
+        kein Kopierschutz umgangen, nichts vervielfältigt und nichts an Dritte
+        weitergegeben. Ihre Zugangsdaten liegen verschlüsselt auf Ihrem eigenen
+        System und werden an niemanden außer Thalia selbst gesendet.
+      </p>
+
+      <p>
+        Gleichwohl, offen gesagt: Die verwendete Schnittstelle ist nicht für den
+        Zugriff durch fremde Software vorgesehen. <strong>Die Nutzung dieser
+        Funktion kann den Nutzungsbedingungen von Thalia widersprechen und
+        erfolgt auf eigene Verantwortung.</strong> Wer das nicht möchte, lässt
+        sie einfach ungenutzt — <strong>alle übrigen Funktionen arbeiten
+        vollständig unabhängig davon.</strong>
+      </p>
+
+      <h3 id="rechtliches-gewaehrleistung">Gewährleistung</h3>
+
+      <p>
+        Die Software wird bereitgestellt, wie sie ist, ohne Zusicherung
+        irgendeiner Art. Die Nutzung erfolgt auf eigenes Risiko; für Schäden oder
+        Datenverlust wird keine Haftung übernommen.
+      </p>
+
+      <p>
+        <strong>Legen Sie Sicherungen an</strong> (siehe
+        <a href="#schritt-sicherungen">Die ersten Schritte, Punkt 1</a>) — das
+        gilt für jede Software, die Ihre Daten verwaltet.
+      </p>
+    </section>
+
+    <footer class="fuss">
+      <p>
+        <strong>AllMyBooks</strong> — Handbuch für Windows und Android.
+        Die Bildschirmfotos zeigen eine Beispielinstallation.
+      </p>
+      <p>
+        <a href="https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest">Neueste Fassung</a> ·
+        <a href="https://github.com/Bl4ck969/AllMyBooks-releases/releases">Alle Fassungen und Änderungsnotizen</a> ·
+        <a href="https://github.com/Bl4ck969/AllMyBooks-releases">Release-Bereich</a>
+      </p>
+    </footer>
+
+  </main>
+</div>
+
+<div class="lupe" id="lupe" role="dialog" aria-modal="true" aria-label="Bildschirmfoto in voller Grösse">
+  <button class="lupe__zu" aria-label="Schliessen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <img src="" alt="">
+</div>
+
+<script src="assets/handbuch.js"></script>
+</body>
+</html>
