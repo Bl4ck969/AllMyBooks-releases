@@ -6,12 +6,17 @@ Die **Windows-App** kann auf zwei Arten laufen: **eigenständig**, dann bringt s
 
 Die **Android-App** ist immer ein Client: Sie koppelt sich mit einem Server, der bereits läuft — dem Hub. Das kann ein NAS sein oder die eigenständige Windows-App auf deinem Rechner.
 
+> ### 📖 [Das vollständige Handbuch](https://bl4ck969.github.io/AllMyBooks-releases/)
+>
+> Diese Seite hier ist die Kurzfassung. Im Handbuch steht alles ausführlich und mit Bildschirmfotos: der [Aufbau aus Server und Clients](https://bl4ck969.github.io/AllMyBooks-releases/#server-client), eine [Begriffserklärung](https://bl4ck969.github.io/AllMyBooks-releases/#begriffe), [jede Ansicht der Oberfläche einzeln](https://bl4ck969.github.io/AllMyBooks-releases/#oberflaeche) und eine [Fehlersuche](https://bl4ck969.github.io/AllMyBooks-releases/#fehlersuche).
+
 ## Download
 
 | | |
 |---|---|
 | **[⬇️ Neueste Version](https://github.com/Bl4ck969/AllMyBooks-releases/releases/latest)** | Das willst du normalerweise |
 | [Alle Versionen](https://github.com/Bl4ck969/AllMyBooks-releases/releases) | Ältere Fassungen und die Änderungsnotizen |
+| [📖 Handbuch](https://bl4ck969.github.io/AllMyBooks-releases/) | Die vollständige Anleitung mit Bildschirmfotos |
 
 Jedes Release enthält **beide** Apps:
 
@@ -251,6 +256,8 @@ Unter **`%APPDATA%\AllMyBooks`** — Datenbank, Buchcover, Personenfotos und Sic
 ## Dieses Repository
 
 Hier liegen ausschließlich die fertigen Installationsdateien. Der Quellcode wird an anderer Stelle entwickelt. Beide Apps holen sich ihre Updates direkt aus dem [Release-Bereich](https://github.com/Bl4ck969/AllMyBooks-releases/releases) dieses Repositories.
+
+Dazu kommt das **[Handbuch](https://bl4ck969.github.io/AllMyBooks-releases/)** — es liegt als HTML-Seite unter [`docs/`](docs/) und wird über GitHub Pages ausgeliefert. Es lädt nichts von fremden Servern nach: keine Schriftarten, keine Zählpixel, keine Skripte Dritter.
 
 ---
 
