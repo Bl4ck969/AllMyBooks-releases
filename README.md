@@ -117,7 +117,7 @@ Wo deine Bücher tatsächlich stehen: „Wohnzimmer-Regal", „Keller-Kiste", �
 
 Bücher, die beim Import unklar bleiben, landen im Reiter **Unbearbeitet** und warten dort auf dich — nichts geht verloren.
 
-Dort lässt sich auch das **Cover** schon bearbeiten, bevor das Buch in der Bibliothek steht: Ein Klick auf das Bild einer Karte öffnet den Editor zum Drehen, Zuschneiden und Geraderücken. Trägt der Eintrag noch gar kein Bild — der Normalfall bei Büchern aus einer Importdatei —, kannst du eines **fotografieren**, eine **Datei wählen** oder das beim Nachschlagen gefundene **Online-Cover übernehmen**.
+Dort lässt sich auch das **Cover** schon bearbeiten, bevor das Buch in der Bibliothek steht: Ein Klick auf das Bild einer Karte öffnet den Editor zum Drehen, Zuschneiden und Geraderücken — genauso im Formular hinter dem Knopf **Bearbeiten**. Trägt der Eintrag noch gar kein Bild — der Normalfall bei Büchern aus einer Importdatei —, kannst du eines **fotografieren**, eine **Datei wählen** oder das beim Nachschlagen gefundene **Online-Cover übernehmen**.
 
 ### 5. Thalia-Konto verbinden (nur für E-Books)
 
