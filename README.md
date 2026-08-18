@@ -117,6 +117,8 @@ Wo deine Bücher tatsächlich stehen: „Wohnzimmer-Regal", „Keller-Kiste", �
 
 Bücher, die beim Import unklar bleiben, landen im Reiter **Unbearbeitet** und warten dort auf dich — nichts geht verloren.
 
+Dort lässt sich auch das **Cover** schon bearbeiten, bevor das Buch in der Bibliothek steht: Ein Klick auf das Bild einer Karte öffnet den Editor zum Drehen, Zuschneiden und Geraderücken. Trägt der Eintrag noch gar kein Bild — der Normalfall bei Büchern aus einer Importdatei —, kannst du eines **fotografieren**, eine **Datei wählen** oder das beim Nachschlagen gefundene **Online-Cover übernehmen**.
+
 ### 5. Thalia-Konto verbinden (nur für E-Books)
 
 **Einstellungen → Thalia**, danach **Import → Thalia-Sync**
@@ -139,6 +141,28 @@ Rein freiwillig — **ohne das funktioniert alles**, es ist nur bequemer. Damit 
 Hinterlegbar sind ein **Gemini-** oder **Claude-Schlüssel** oder eine **Ollama-Adresse** für ein Modell auf dem eigenen Rechner. Über die **Provider-Reihenfolge** legst du fest, wer zuerst gefragt wird. Ohne jeden Eintrag bleibt nur die Texterkennung, die immer mitläuft.
 
 > Für Ollama in einem Container gilt: `localhost` zeigt dort auf den Container selbst. Trage die Netzwerkadresse des Rechners ein, etwa `http://192.168.1.50:11434`, und benutze ein Modell, das Bilder versteht.
+
+---
+
+### 7. Nach dem Import: Tags und Genres aufräumen
+
+**Einstellungen → Tags** und **Einstellungen → Genres**
+
+Nach einem größeren Import stehen dort schnell mehrere hundert Einträge — aus verschiedenen Quellen, in verschiedenen Schreibweisen. Beide Reiter sind gleich aufgebaut: links die vollständige Liste mit Suchfeld und der **Zahl der zugeordneten Titel**, rechts der gewählte Eintrag.
+
+| Was | Wofür |
+|---|---|
+| **Umbenennen** | Schreibweise richten. Der neue Name gilt sofort für alle Titel |
+| **In der Bibliothek** | Öffnet die Bibliothek, auf genau diesen Eintrag gefiltert |
+| **Löschen** | Entfernt den Eintrag von allen Titeln. Die Bücher selbst bleiben unverändert |
+| **Zuordnung lösen** | Nimmt einem einzelnen Titel das Tag bzw. Genre |
+| **Titel zuordnen** | Suchen, mehrere markieren, in einem Zug zuordnen |
+
+Die Zahl neben jedem Eintrag ist dabei die eigentliche Auskunft: Eine **0** heißt, dass der Eintrag an keinem Buch mehr hängt und weg kann.
+
+> **Umbenennen auf einen vorhandenen Namen führt zusammen.** Aus zwei Einträgen wird dann einer, und alle Titel wandern hinüber. Meistens ist das genau das Gewünschte — AllMyBooks fragt vorher trotzdem nach, denn rückgängig machen lässt es sich nicht.
+
+Diese beiden Reiter sind **Administratoren vorbehalten**.
 
 ---
 

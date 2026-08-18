@@ -1341,6 +1341,17 @@
         Texterkennung, die immer mitläuft.
       </p>
 
+      <p>
+        Zwischen Vorder- und Rückseite steht ein <strong>Pfeil</strong>. Er
+        vertauscht die beiden: Was als Rückseite abgelegt war, wird zur
+        Vorderseite und umgekehrt. Praktisch, wenn beim Abfotografieren die
+        Reihenfolge durcheinandergeraten ist — beim Scannen des Strichcodes ist
+        das sogar der Regelfall, denn der steht hinten auf dem Buch. Ist nur
+        <em>eine</em> Aufnahme hinterlegt, hängt der Pfeil sie auf die andere
+        Seite um. Ein zweiter Klick nimmt beides wieder zurück; die
+        Bildqualität leidet dabei nicht.
+      </p>
+
       <div class="kasten kasten--hinweis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
         <div>
@@ -1444,6 +1455,12 @@
         beim Anlegen eines Titels automatisch zugeordnet. Wo die Automatik unsicher
         ist, legt sie einen Vorschlag zur Entscheidung ab — sichtbar an der Zahl
         neben <em>Import</em> und <em>Genre-Cleanup</em>.
+      </p>
+
+      <p>
+        Die vollständige Liste aller Genres und Schlagworte — mit der Zahl
+        der zugeordneten Titel, zum Umbenennen, Löschen und Zuordnen — steht
+        unter <em>Einstellungen → Genres</em> bzw. <em>→ Tags</em>.
       </p>
 
       <p>
@@ -1656,6 +1673,46 @@
         </div>
       </div>
 
+      <h4>Das Cover eines Stapel-Eintrags</h4>
+      <p>
+        Ein Klick auf das Bild einer Karte — oder auf den Knopf
+        <em>Cover</em> — öffnet die Cover-Bearbeitung, noch bevor der Titel in
+        der Bibliothek steht. Dort lässt sich die Aufnahme
+        <strong>drehen, zuschneiden, entzerren und in den Farben anpassen</strong>,
+        genau wie bei einem fertigen Titel.
+      </p>
+      <p>
+        Trägt der Eintrag noch gar kein Bild — der Normalfall bei Büchern aus
+        einer Importdatei —, stehen dort drei Wege offen:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Weg</th><th>Wofür</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Foto aufnehmen</strong></td><td>Auf Geräten mit Kamera: das Buch direkt abfotografieren.</td></tr>
+            <tr><td><strong>Datei wählen</strong></td><td>Ein Bild von der Festplatte.</td></tr>
+            <tr><td><strong>Online-Cover übernehmen</strong></td><td>Erscheint, wenn beim Nachschlagen ein Cover gefunden wurde. Es wird heruntergeladen und ist danach bearbeitbar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Beide Buchseiten lassen sich in einem Durchgang aufnehmen. Der
+        <strong>Pfeil</strong> zwischen den beiden Aufnahmen vertauscht
+        Vorder- und Rückseite — dieselbe Geste wie in der Cover-Bearbeitung
+        eines Titels.
+      </p>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Jede Änderung wird sofort gespeichert</span>
+          <p>
+            Drehen, Zuschneiden und die Wahl der Seite gehen unmittelbar an
+            den Server. Sie überstehen das Schliessen des Fensters und
+            bleiben erhalten, bis der Eintrag als Titel übernommen wird.
+          </p>
+        </div>
+      </div>
+
       <h4>Metadaten ergänzen</h4>
       <p>
         Sucht für Titel, denen Angaben fehlen, noch einmal nach. Sinnvoll nach
@@ -1763,7 +1820,7 @@
 
       <h3 id="seite-einstellungen">Einstellungen</h3>
 
-      <p>Die Einstellungen sind in fünf Reiter geteilt:</p>
+      <p>Die Einstellungen sind in sieben Reiter geteilt:</p>
 
       <div class="tabellenrahmen">
         <table>
@@ -1772,6 +1829,8 @@
             <tr><td><strong>Anzeige</strong></td><td>Helles oder dunkles Thema, Startseite nach dem Anmelden.</td><td>nein — gilt sofort</td></tr>
             <tr><td><strong>Bibliothek</strong></td><td>Nach wie vielen Tagen die Markierung „Neu“ von selbst verfällt.</td><td>ja</td></tr>
             <tr><td><strong>Import</strong></td><td>Metadaten-Quellen, Google-Books-Schlüssel, Thalia-Zugangsdaten, KI-Erkennung.</td><td>ja</td></tr>
+            <tr><td><strong>Tags</strong></td><td>Alle Schlagworte: ansehen, umbenennen, löschen, Titel zuordnen und lösen.</td><td>nein — jeder Vorgang gilt sofort</td></tr>
+            <tr><td><strong>Genres</strong></td><td>Dasselbe für die Genres.</td><td>nein — jeder Vorgang gilt sofort</td></tr>
             <tr><td><strong>Sicherungen</strong></td><td>Zeitplan, Aufbewahrung, Ordner — und die Gefahrenzone.</td><td>ja</td></tr>
             <tr><td><strong>App</strong></td><td>Aktualisierung, lokaler Bestand, Fassungsangaben, ausführliches Protokoll.</td><td>nein</td></tr>
           </tbody>
@@ -1782,6 +1841,35 @@
         <img src="bilder/19-einst-app.webp" alt="Einstellungen, Reiter App, mit Angaben zur installierten Fassung und zum Datenbankschema" width="1440" height="900" loading="lazy" decoding="async">
         <figcaption><b>Der Reiter „App“.</b> „Fassung des Servers“ meint bewusst den Server — die App auf Ihrem Handy kann eine andere Nummer tragen.</figcaption>
       </figure>
+
+      <h4>Tags und Genres verwalten</h4>
+      <p>
+        Beide Reiter sind gleich aufgebaut. Links stehen alle Einträge mit
+        einem Suchfeld und der <strong>Zahl der zugeordneten Titel</strong>
+        — daran sieht man auf einen Blick, was verwaist ist und was die
+        Bibliothek wirklich trägt. Ein Klick wählt einen Eintrag aus; rechts
+        erscheinen dann:
+      </p>
+      <ul>
+        <li><strong>Umbenennen</strong> — der Name gilt sofort für alle Titel.</li>
+        <li><strong>In der Bibliothek</strong> — öffnet die Bibliothek, auf genau diesen Eintrag gefiltert. Dort stehen Sortierung, weitere Filter und die Stapelverarbeitung bereit.</li>
+        <li><strong>Löschen</strong> — der Eintrag verschwindet und wird von allen Titeln entfernt. Die Titel selbst bleiben unverändert.</li>
+        <li><strong>Zugeordnete Titel</strong> — die vollständige Liste. Das Kreuz daneben löst die Zuordnung eines einzelnen Titels, ohne ihn zu verändern.</li>
+        <li><strong>Titel zuordnen</strong> — Suchfeld, Mehrfachauswahl, ein Knopf. Bereits zugeordnete Titel sind gekennzeichnet und lassen sich nicht doppelt auswählen.</li>
+      </ul>
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Umbenennen auf einen vorhandenen Namen führt zusammen</span>
+          <p>
+            Geben Sie einen Namen ein, den es bereits gibt, werden beide
+            Einträge <strong>verschmolzen</strong>: Alle Titel wandern zum
+            vorhandenen, der umbenannte verschwindet. Das ist meistens genau
+            das, was man will — deshalb fragt AllMyBooks vorher
+            ausdrücklich nach. Rückgängig machen lässt es sich nicht.
+          </p>
+        </div>
+      </div>
 
       <div class="kasten kasten--hinweis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
