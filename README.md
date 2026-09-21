@@ -243,6 +243,8 @@ Die App braucht einen Server, mit dem sie sich verbindet. Auf dem Rechner, auf d
 >
 > ⚠️ Verbunden wird **nur ins eigene Netz**. Eine Adresse, die aus dem Heimnetz hinausführt, lehnt die App ab — unverschlüsselt gingen dort sonst Benutzername und Passwort hinaus. Für einen Server ausserhalb braucht es eine Adresse mit `https://`.
 
+> ⚠️ **Nach einem Handy-Wechsel musst du neu koppeln.** Lässt du die Daten auf ein neues Gerät übertragen, kommt die Kopplung **nicht mit** — der Weg ist derselbe wie oben. Das ist seit Fassung 1.21.0 so und Absicht: Vorher lag der Geräte-Zugang im Android-Backup und wurde mitkopiert, womit ein Gerät Zugang gehabt hätte, das nie gekoppelt wurde.
+
 ### Updates
 
 **Die App sagt dir beim Start Bescheid**, wenn eine neue Fassung bereitliegt — mit der Wahl *jetzt schliessen und installieren* oder *später*. Bei „Später" fragt sie beim nächsten Start noch einmal.
@@ -255,7 +257,11 @@ Nachsehen kannst du jederzeit selbst: in den **Einstellungen** unter **App-Aktua
 
 ### Was die App kann und was nicht
 
-Sie zeigt deine Bibliothek, Personen, Cover und Lagerorte, kann Bücher als gelesen markieren, Favoriten setzen und ISBN-Codes über die Kamera einlesen. Sie braucht dafür **Verbindung zum Hub** — ohne ihn zeigt sie nichts an.
+Sie zeigt deine Bibliothek, Personen, Cover und Lagerorte, kann Bücher als gelesen markieren, Favoriten setzen und ISBN-Codes über die Kamera einlesen.
+
+> ℹ️ **Ohne Verbindung zum Hub steht die App nicht still.** Sie hält eine eigene Kopie deiner Bibliothek und zeigt sie an, wenn der Hub nicht erreichbar ist — unterwegs also ganz normal. Voraussetzung ist, dass sie sich **vorher mindestens einmal abgeglichen** hat.
+>
+> ⚠️ Ausgewichen wird nur, wenn der Hub **gar nicht antwortet**. Weist er etwas ab (etwa weil deine Anmeldung abgelaufen ist), bekommst du seine Antwort zu sehen und nicht die Kopie — sonst zeigte dir die App Daten, die du gerade nicht mehr sehen darfst.
 
 ---
 
