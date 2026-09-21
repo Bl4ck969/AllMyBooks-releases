@@ -113,7 +113,8 @@
         <li data-schlagworte="import reiter csv xlsx isbn thalia manuell ki"><a href="#seite-import">Import</a></li>
         <li data-schlagworte="geraete kopplung handy tablet qr"><a href="#seite-geraete">Geräte</a></li>
         <li data-schlagworte="sicherungen backup wiederherstellen"><a href="#seite-sicherungen">Sicherungen</a></li>
-        <li data-schlagworte="benutzer konten rollen admin"><a href="#seite-benutzer">Benutzer</a></li>
+        <li data-schlagworte="benutzer konten rollen admin passwort aendern sicherheitsfragen mein konto"><a href="#seite-benutzer">Benutzer</a></li>
+        <li data-schlagworte="mein konto passwort aendern sicherheitsfragen eigenes konto"><a href="#mein-konto">Mein Konto</a></li>
         <li data-schlagworte="einstellungen reiter anzeige"><a href="#seite-einstellungen">Einstellungen</a></li>
       </ul>
     </div>
@@ -1074,7 +1075,7 @@
           <tbody>
             <tr>
               <td><strong>Filterleiste</strong></td>
-              <td>Suche in Titel und Originaltitel, Sortierung, sowie Filter nach Quelle, Genre, Tags, Reihe, Lagerort, Kategorie, Autor und Lese-Status. Über <em>Mehr Filter</em> kommen weitere hinzu. Die beiden Symbole rechts filtern auf Favoriten und Merkliste.</td>
+              <td>Suche in Titel, Originaltitel und <strong>allen beteiligten Personen</strong> — also auch Autoren, Übersetzern und Illustratoren. Gesucht wird in beiden Schreibweisen („Kai Meyer" ebenso wie „Meyer, Kai"). Dazu Sortierung, sowie Filter nach Quelle, Genre, Tags, Reihe, Lagerort, Kategorie, Autor und Lese-Status. Über <em>Mehr Filter</em> kommen weitere hinzu. Die beiden Symbole rechts filtern auf Favoriten und Merkliste.</td>
             </tr>
             <tr>
               <td><strong>Alphabet-Leiste</strong></td>
@@ -1087,6 +1088,29 @@
           </tbody>
         </table>
       </div>
+      <h4 style="margin-top:1.6rem">Die Ansicht „nach Autor A→Z"</h4>
+
+      <p>
+        Unter den Sortierungen steht seit Fassung 1.21.0
+        <strong>nach Autor A→Z</strong>. Sie verhält sich anders als die
+        übrigen: Statt einer durchgehenden Liste erscheinen
+        <strong>Zwischenüberschriften</strong> — ein Autorenname, darunter seine
+        Werke alphabetisch, dann der nächste Name.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Es werden mehr Karten angezeigt, als Sie Bücher haben</span>
+          <p>
+            Ein Buch mit zwei Autoren erscheint <strong>unter jedem von
+            ihnen</strong>. Die Gesamtzahl der Kacheln ist in dieser Ansicht
+            deshalb höher als Ihr Bestand — gezählt wird nicht doppelt, gezeigt
+            schon.
+          </p>
+        </div>
+      </div>
+
 
       <h4 id="filter-erweitert">Die erweiterten Filter</h4>
 
@@ -1833,12 +1857,82 @@
       </div>
 
       <p>
-        Ein neu angelegtes Konto bekommt ein Anfangspasswort, das der Benutzer
-        beim ersten Anmelden ändern muss; dabei legt er auch seine
-        Sicherheitsfragen fest.
+        Ein neu angelegtes Konto bekommt vom Administrator ein
+        <strong>Anfangspasswort</strong>. Damit kann sich der Benutzer anmelden —
+        und muss dann <strong>zuerst ein eigenes Passwort vergeben und seine
+        Sicherheitsfragen beantworten</strong>. Erst danach steht ihm die
+        Bibliothek offen.
       </p>
 
-      <h3 id="seite-einstellungen">Einstellungen</h3>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Diese Ersteinrichtung lässt sich seit Fassung 1.22.0 nicht mehr überspringen</span>
+          <p>
+            Vorher war sie eine Bitte: Die Oberfläche führte zwar zur
+            Ersteinrichtung, wer die Anwendung aber auf anderem Weg ansprach,
+            konnte mit dem Anfangspasswort weiterarbeiten. Jetzt ist es eine
+            Sperre.
+          </p>
+          <p>
+            <strong>Für Sie als Administrator ändert sich am Anlegen nichts.</strong>
+            Nur der Betroffene kommt vor dem Wechsel nicht mehr an den Bestand —
+            das ist beabsichtigt und kein Fehler.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="mein-konto">Mein Konto</h3>
+
+      <p>
+        Hinter demselben Eintrag verbirgt sich für jeden Benutzer sein eigenes
+        Konto. <strong>Wer kein Administrator ist, sieht hier nur sich selbst</strong>
+        — die Überschrift lautet dann „Mein Konto" statt „Benutzer".
+      </p>
+
+      <p>Zwei Dinge lassen sich am eigenen Konto ändern:</p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Was</th><th>Wie</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Passwort ändern</strong></td>
+              <td>Führt zur Seite für den Passwortwechsel. Das bisherige Passwort wird abgefragt.</td>
+            </tr>
+            <tr>
+              <td><strong>Sicherheitsfragen</strong></td>
+              <td>Ersetzt alle bisherigen Fragen durch vier neue. Auch hier bestätigen Sie mit Ihrem Passwort.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div>
+          <span class="kasten__titel">Fremde Sicherheitsfragen kann niemand ändern — auch kein Administrator</span>
+          <p>
+            An fremden Konten kann ein Administrator das Passwort
+            <strong>zurücksetzen</strong> oder das Konto löschen. Die
+            Sicherheitsfragen eines anderen anzusehen oder zu ersetzen, geht
+            nicht.
+          </p>
+          <p>
+            Das ist Absicht: Die Sicherheitsfragen sind ein zweiter Weg ins
+            Konto. Wer sie für ein fremdes Konto setzen könnte, käme über
+            „Passwort vergessen" hinein, ohne das Passwort je zu kennen.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Die bisherigen <em>Antworten</em> lassen sich nirgends anzeigen — sie
+        werden wie Passwörter verschlüsselt gespeichert und sind auch für den
+        Administrator nicht lesbar. Ersetzen geht, nachlesen nicht.
+      </p>
+
+<h3 id="seite-einstellungen">Einstellungen</h3>
 
       <p>Die Einstellungen sind in sieben Reiter geteilt:</p>
 
@@ -2027,6 +2121,26 @@
           </p>
         </div>
       </div>
+    
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Nach einem Gerätewechsel müssen Sie neu koppeln</span>
+          <p>
+            Wenn Sie auf ein neues Handy umziehen und die Daten übertragen
+            lassen, kommt die Kopplung <strong>nicht mit</strong>. Sie richten
+            die Verbindung auf dem neuen Gerät noch einmal ein — der Weg ist
+            derselbe wie oben.
+          </p>
+          <p>
+            Das ist seit Fassung 1.21.0 so und Absicht: Vorher lag der
+            Geräte-Zugang im Android-Backup und wurde auf das neue Gerät
+            mitkopiert. Damit hätte ein Gerät Zugang gehabt, das nie gekoppelt
+            wurde. <strong>Der kurze Mehraufwand ist der Preis dafür.</strong>
+          </p>
+        </div>
+      </div>
+
     </section>
 
     <!-- ============================================================= -->
