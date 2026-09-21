@@ -124,6 +124,7 @@
       <ul class="iv__liste">
         <li data-schlagworte="koppeln qr code verbinden hub adresse"><a href="#handy-koppeln">Das Handy anbinden</a></li>
         <li data-schlagworte="app kann offline scanner kamera"><a href="#handy-funktionen">Was die App kann</a></li>
+        <li data-schlagworte="offline ohne verbindung ohne netz lokale kopie abgleich synchronisieren konflikt unterwegs zug"><a href="#offline-arbeiten">Ohne Verbindung arbeiten</a></li>
         <li data-schlagworte="mehrere server wechseln umschalten"><a href="#mehrere-server">Mehrere Server</a></li>
       </ul>
     </div>
@@ -2100,6 +2101,200 @@
         Bestand selbst liegt weiterhin beim Hub; sobald die Verbindung wieder
         steht, gleicht die App ab.
       </p>
+
+
+      <h3 id="offline-arbeiten">Ohne Verbindung arbeiten</h3>
+
+      <p>
+        Die App ist nicht darauf angewiesen, den Hub zu erreichen. Sie hält
+        eine <strong>eigene Kopie Ihres Bestands auf dem Gerät</strong> und
+        arbeitet damit weiter, wenn der Hub nicht antwortet — im Zug, im
+        Buchladen, im Keller. Sobald die Verbindung wieder steht, gleicht sie ab.
+      </p>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Diese Kopie führt nur die Handy-App</span>
+          <p>
+            Im Browser und im Windows-Programm gibt es sie nicht — dort
+            kommen Oberfläche und Daten vom selben Server, und ohne ihn
+            gibt es nichts anzuzeigen. Die Einstellungen sagen das an dieser
+            Stelle auch so.
+          </p>
+        </div>
+      </div>
+
+      <h4>Was ohne Verbindung geht</h4>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Bereich</th><th>Ohne Verbindung</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Ansehen</strong></td>
+              <td>Bibliothek, Titelseiten, Personen, Lagerorte und die Cover — sofern die Bilder geholt wurden (siehe unten)</td>
+            </tr>
+            <tr>
+              <td><strong>Lesen vermerken</strong></td>
+              <td>Als gelesen markieren, einen Lesevorgang beginnen und abschliessen, einen Vermerk wieder entfernen</td>
+            </tr>
+            <tr>
+              <td><strong>Markieren</strong></td>
+              <td>Favorit setzen und wegnehmen</td>
+            </tr>
+            <tr>
+              <td><strong>Ändern</strong></td>
+              <td>Angaben eines Titels bearbeiten, ein Buch einem anderen Lagerort zuordnen</td>
+            </tr>
+            <tr>
+              <td><strong>Personen</strong></td>
+              <td>Vorhandene suchen, eine neue anlegen, einem Titel zuordnen oder die Zuordnung lösen</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Alles andere braucht den Hub: <strong>Import, Sicherungen, die Suche
+        nach neuen Büchern über ISBN, Cover hochladen und alle
+        Einstellungen des Servers.</strong> Diese Seiten sagen Ihnen das, statt
+        stumm zu bleiben.
+      </p>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Auf die Kopie wird nur ausgewichen, wenn der Hub gar nicht antwortet</span>
+          <p>
+            Weist er etwas <em>ab</em> — etwa weil Ihre Anmeldung
+            abgelaufen ist oder Ihnen die Berechtigung fehlt —, bekommen
+            Sie <strong>seine Antwort</strong> zu sehen und nicht die Kopie.
+          </p>
+          <p>
+            Das ist Absicht: Sonst zeigte Ihnen die App Daten, die Sie gerade
+            nicht mehr sehen dürfen, und nichts wiese darauf hin.
+          </p>
+        </div>
+      </div>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Der Wechsel dauert einen Moment</span>
+          <p>
+            Ist der Hub nicht erreichbar, wartet die App <strong>bis zu acht
+            Sekunden</strong> auf ihn, bevor sie aus der Kopie antwortet. Das
+            ist der Preis dafür, dass eine <em>langsame</em> Verbindung
+            nicht fälschlich für „kein Netz“ gehalten wird.
+          </p>
+          <p>
+            Unterwegs ist genau das der Normalfall: Das Handy hat Mobilfunk,
+            meldet also „Netz vorhanden“ — nur Ihr Hub im Heimnetz ist von
+            dort aus nicht zu erreichen.
+          </p>
+        </div>
+      </div>
+
+      <h4>Nachsehen, was Sie dabeihaben</h4>
+
+      <p>
+        In den <strong>Einstellungen</strong> steht die Karte
+        <strong>Lokaler Bestand</strong>. Sie zeigt, was auf dem Gerät
+        liegt, und lässt den Abgleich von Hand anstossen.
+      </p>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Angabe</th><th>Was sie bedeutet</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Letzter Abgleich</strong></td>
+              <td>Wann die Kopie zuletzt auf den Stand des Hubs gebracht wurde</td>
+            </tr>
+            <tr>
+              <td><strong>Anzahlen je Art</strong></td>
+              <td>Wie viele Titel, Personen, Lagerorte … wirklich auf dem Gerät liegen</td>
+            </tr>
+            <tr>
+              <td><strong>Bilder</strong></td>
+              <td>„<em>x</em> von <em>y</em>“. Steht dort <strong>unvollständig</strong>, fehlen Cover — <em>Bilder jetzt holen</em> lädt sie nach</td>
+            </tr>
+            <tr>
+              <td><strong>Uhr dieses Geräts</strong></td>
+              <td>Weicht sie stark von der des Hubs ab, können Zeitangaben durcheinandergeraten</td>
+            </tr>
+            <tr>
+              <td><strong>Dauerhafte Ablage</strong></td>
+              <td>Siehe den Kasten unten</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Jetzt abgleichen</strong> schickt zuerst Ihre eigenen
+        Änderungen zum Hub und holt danach dessen Stand. Diese Reihenfolge
+        ist wichtig — andersherum überschriebe der Hub, was Sie gerade
+        offline geändert haben.
+      </p>
+
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">„Dauerhafte Ablage: nicht zugesagt“ ist kein Fehler</span>
+          <p>
+            Die App <em>bittet</em> das Betriebssystem darum, die Kopie nicht
+            wegzuräumen. Wird das nicht zugesagt, darf Android sie bei
+            Speicherknappheit verwerfen.
+          </p>
+          <p>
+            <strong>Verloren geht dabei nichts, was nur dort läge</strong> —
+            der Bestand liegt beim Hub. Es kostet einen erneuten Abgleich, und
+            die Kopplung bleibt bestehen.
+          </p>
+        </div>
+      </div>
+
+      <h4>Wenn zwei Geräte dasselbe geändert haben</h4>
+
+      <p>
+        Haben Sie ein Buch am Handy bearbeitet, während jemand dasselbe Buch
+        am Rechner geändert hat, entscheidet die App das <strong>nicht
+        selbst</strong>. Oben erscheint ein Hinweis:
+        <em>„Eine Änderung braucht eine Entscheidung“</em>, mit
+        dem Knopf <strong>Änderung ansehen</strong>.
+      </p>
+
+      <p>
+        Der Dialog heißt <strong>Änderungen entscheiden</strong> und
+        stellt beide Fassungen nebeneinander. Sie wählen, welche gilt.
+      </p>
+
+      <div class="kasten kasten--gut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Nichts ist verloren, solange Sie nicht entschieden haben</span>
+          <p>
+            Der Hub hebt <strong>beide</strong> Fassungen auf. Der Hinweis bleibt
+            stehen, bis Sie sich entschieden haben — er verschwindet nicht
+            von selbst und wählt auch nicht nach einer Frist eine Seite aus.
+          </p>
+        </div>
+      </div>
+
+      <div class="kasten kasten--warnung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Ohne angemeldetes Konto wird offline nichts geändert</span>
+          <p>
+            Ansehen können Sie die Kopie, ändern nicht. Lesevermerke
+            und Favoriten gehören zu <em>einem Konto</em> — ohne
+            Anmeldung entstünden Einträge, die beim nächsten
+            Abgleich dem falschen Konto zugeschrieben würden.
+          </p>
+        </div>
+      </div>
 
       <h3 id="mehrere-server">Mehrere Server</h3>
 
