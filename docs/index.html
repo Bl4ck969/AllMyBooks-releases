@@ -111,7 +111,7 @@
         <li data-schlagworte="inventur bestandsaufnahme zaehlen vermisst pruefen regal"><a href="#inventur">— Die Inventur</a></li>
         <li data-schlagworte="favoriten herz merkliste"><a href="#seite-favoriten">Favoriten</a></li>
         <li data-schlagworte="import reiter csv xlsx isbn thalia manuell ki"><a href="#seite-import">Import</a></li>
-        <li data-schlagworte="reihe serie band ebook e-book tolino ohne isbn dnb pruefliste vorschlag metadaten ergaenzen"><a href="#reihen-ebooks">— Reihen für E-Books ohne ISBN</a></li>
+        <li data-schlagworte="reihe serie band fehlende ergaenzen nachtragen isbn ebook e-book tolino dnb pruefliste vorschlag metadaten"><a href="#reihen-ergaenzen">— Fehlende Reihen ergänzen</a></li>
         <li data-schlagworte="geraete kopplung handy tablet qr"><a href="#seite-geraete">Geräte</a></li>
         <li data-schlagworte="sicherungen backup wiederherstellen"><a href="#seite-sicherungen">Sicherungen</a></li>
         <li data-schlagworte="benutzer konten rollen admin passwort aendern sicherheitsfragen mein konto"><a href="#seite-benutzer">Benutzer</a></li>
@@ -1380,7 +1380,7 @@
             <tr>
               <td><strong>Verlagsreihe</strong> — die Nummer, unter der ein Verlag das Buch führt</td>
               <td>„Knaur Taschenbuch“, „dtv“, „Bastei-Lübbe-Taschenbuch“ mit vier- oder fünfstelliger Nummer</td>
-              <td><strong>Keine Reihe.</strong> Die Anwendung erkennt sie an der Kennzeichnung durch die DNB, nicht am Namen.</td>
+              <td><strong>Keine Reihe.</strong> Die Anwendung erkennt sie an der Kennzeichnung durch die DNB, nicht am Namen. Führt die DNB dieselbe Verlagsreihe in einem älteren Eintrag ohne Kennzeichen, gleicht die Anwendung über alle Einträge einer Antwort ab (seit Fassung 1.24.0).</td>
             </tr>
             <tr>
               <td><strong>Mehrbändiges Werk</strong> — ein Gesamttitel mit eigenen Bandtiteln</td>
@@ -1790,7 +1790,7 @@
         wartet. Unsichere Treffer bekommen im Stapel keinen Vorschlag, denn
         dort prüft niemand jede Reihe einzeln. Steht das Buch erst einmal in
         der Bibliothek, findet die Prüfliste
-        <a href="#reihen-ebooks">Reihen für E-Books ohne ISBN</a> es wieder —
+        <a href="#reihen-ergaenzen">Fehlende Reihen ergänzen</a> es wieder —
         samt dem Grund, warum der Vorschlag unsicher ist.
       </p>
 
@@ -1884,26 +1884,47 @@
         hinterlegt haben.
       </p>
       <p>
-        Unter dieser Suche steht seit Fassung 1.23.0 eine zweite Karte,
-        <em>Reihen für E-Books ohne ISBN</em>, beschrieben im nächsten
+        Unter dieser Suche steht eine zweite Karte,
+        <em>Fehlende Reihen ergänzen</em>, beschrieben im nächsten
         Abschnitt.
       </p>
 
-      <h4 id="reihen-ebooks">Reihen für E-Books ohne ISBN</h4>
+      <h4 id="reihen-ergaenzen">Fehlende Reihen ergänzen</h4>
       <p>
-        E-Books aus dem <a href="#seite-import">Thalia-Sync</a> tragen oft
-        keine ISBN. Ohne sie findet die gewöhnliche Anreicherung nichts, und
-        eine Reihe kennt die Tolino-Cloud ohnehin nicht — sie steht allenfalls
-        im Titel, etwa „Engelszorn (Gilde der Jäger 2)“. Diese Prüfliste sucht
-        für jedes solche E-Book die <strong>gedruckte Ausgabe</strong> bei der
-        Deutschen Nationalbibliothek und schlägt deren Reihe und Band vor.
+        Ein Buch, das ohne Reihe in die Bibliothek kam, bleibt ohne Reihe —
+        <em>Metadaten ergänzen</em> trägt sie nicht nach. Diese Prüfliste
+        fragt für <strong>jeden Titel ohne Reihe</strong> die Deutsche
+        Nationalbibliothek und schlägt Reihe und Band vor, auf einem von zwei
+        Wegen:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Das Buch hat …</th><th>Gefragt wird</th><th>Wie sicher</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>eine ISBN</strong></td>
+              <td>Über die ISBN — der Eintrag der DNB ist genau Ihre Ausgabe.</td>
+              <td>Zuverlässig, denn hier wird nichts geraten. Kennt die DNB die Ausgabe, aber ohne Reihe, gehört das Buch zu keiner, und es gibt keinen Vorschlag.</td>
+            </tr>
+            <tr>
+              <td><strong>keine ISBN</strong> — vor allem E-Books aus dem <a href="#seite-import">Thalia-Sync</a></td>
+              <td>Über Titel und Autor — die Suche sucht eine <em>andere</em> Ausgabe desselben Buchs, meist die gedruckte. Bei E-Books steht die Reihe oft nur im Titel, etwa „Engelszorn (Gilde der Jäger 2)“.</td>
+              <td>Geschlossen, deshalb mit Hinweisen, wo etwas nicht zusammenpasst (Tabelle unten).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Kennt die DNB keine der ISBNs eines Buchs — meist bei
+        fremdsprachigen Ausgaben —, sucht sie ersatzweise über Titel und
+        Autor. Jede Zeile der Liste sagt, auf welchem Weg der Vorschlag
+        gefunden wurde.
       </p>
       <p>
-        Geprüft werden alle Titel, die als E-Book vorliegen, bei keiner
-        Ausgabe eine ISBN tragen und noch keiner Reihe zugeordnet sind. Die
-        Karte steht für alle Benutzer da, benutzen können sie nur
+        Die Karte steht für alle Benutzer da, benutzen können sie nur
         <strong>Administratoren</strong> — für alle anderen bleibt sie bei
-        <em>Noch nicht gesucht</em>.
+        <em>Noch nicht gesucht</em>. (Bis Fassung 1.23.0 hieß sie
+        <em>Reihen für E-Books ohne ISBN</em> und nahm nur diese.)
       </p>
 
       <ol class="schritte">
@@ -1911,9 +1932,9 @@
           <strong>Suche starten</strong>
           <p>
             <em>Import → Metadaten ergänzen</em>, ganz unten die Karte
-            <em>Reihen für E-Books ohne ISBN</em>, Knopf
-            <em>E-Books prüfen</em>. Die Suche läuft auf dem Server; die Karte
-            zeigt <em>Suche läuft … 37 von 275</em> und einen Balken. Sie
+            <em>Fehlende Reihen ergänzen</em>, Knopf
+            <em>Bücher prüfen</em>. Die Suche läuft auf dem Server; die Karte
+            zeigt <em>Suche läuft … 120 von 661</em> und einen Balken. Sie
             können die Seite verlassen und später zurückkommen — oder auf
             einem anderen Gerät nachsehen, dort erscheint derselbe Stand.
           </p>
@@ -1933,7 +1954,7 @@
           <strong>Liste durchsehen</strong>
           <p>
             Ist die Suche fertig, steht über der Liste eine Zusammenfassung,
-            etwa <em>147 Vorschläge · 8 mehrdeutig · 119 ohne Treffer</em>.
+            etwa <em>87 Vorschläge · 16 mehrdeutig · 558 ohne Treffer</em>.
             Jede Zeile ist ein E-Book; was sie zeigt, steht in der Tabelle
             unten.
           </p>
@@ -1951,7 +1972,7 @@
           <strong>Übernehmen</strong>
           <p>
             Der Knopf am Ende heißt nach der Zahl der Haken, etwa
-            <em>135 übernehmen</em>. Erst jetzt wird geschrieben — und nur
+            <em>71 übernehmen</em>. Erst jetzt wird geschrieben — und nur
             für die angehakten Zeilen. Sie verschwinden danach aus der Liste;
             die übrigen bleiben stehen, bis Sie sie übernehmen oder neu
             suchen.
@@ -1973,7 +1994,7 @@
             </tr>
             <tr>
               <td><strong>DNB: …</strong></td>
-              <td>Der Eintrag der Nationalbibliothek, aus dem der Vorschlag stammt. Ein Klick öffnet ihn in einem neuen Fenster — der schnellste Weg, einen Zweifel zu klären.</td>
+              <td>Der Eintrag der Nationalbibliothek, aus dem der Vorschlag stammt. Ein Klick öffnet ihn in einem neuen Fenster — der schnellste Weg, einen Zweifel zu klären. Dahinter steht der Weg: <em>über die ISBN</em> oder <em>über Titel und Autor</em>.</td>
             </tr>
             <tr>
               <td><strong>Band</strong></td>
@@ -2025,13 +2046,19 @@
         <div>
           <span class="kasten__titel">Auch angehakte Vorschläge kurz ansehen</span>
           <p>
-            An einem echten Bestand von 275 E-Books waren rund vier von hundert
-            Vorschlägen falsch, obwohl nichts an ihnen auffiel. Fast immer
-            waren es <strong>Sammelausgaben</strong>, die die DNB wie eine
-            Reihe führt — eine „…-Box“, eine Zeitungs-Edition wie
+            <strong>Über Titel und Autor</strong> waren an einem echten Bestand
+            von 275 E-Books rund vier von hundert Vorschlägen falsch, obwohl
+            nichts an ihnen auffiel. Fast immer waren es
+            <strong>Sammelausgaben</strong>, die die DNB wie eine Reihe führt —
+            eine „…-Box“, eine Zeitungs-Edition wie
             „Bild-am-Sonntag-Fantasy-Bibliothek“ oder eine Bilderbuch-Sammlung.
-            Das erkennt nur, wer das Buch kennt. Deshalb schreibt die
-            Anwendung nichts von selbst.
+          </p>
+          <p>
+            <strong>Über die ISBN</strong> ist das seltener, kommt aber vor:
+            Ordnet die DNB Ihre Ausgabe selbst einer Sammel- oder
+            Verlagsausgabe zu, etwa einer „Chronik-Edition“, steht genau die
+            im Vorschlag. Das erkennt nur, wer das Buch kennt. Deshalb schreibt
+            die Anwendung nichts von selbst.
           </p>
         </div>
       </div>
@@ -2043,7 +2070,7 @@
           <tbody>
             <tr><td><strong>Vorschläge</strong></td><td>E-Books, für die eine Reihe gefunden wurde — sie stehen in der Liste.</td></tr>
             <tr><td><strong>mehrdeutig</strong></td><td>Die passenden Einträge der DNB nennen verschiedene Bandnummern, und der Titel entscheidet nicht, welcher gemeint ist. Dann gibt es keinen Vorschlag — lieber keiner als ein geratener.</td></tr>
-            <tr><td><strong>ohne Treffer</strong></td><td>Keine gedruckte Ausgabe gefunden, keine passende mit Reihe, oder das Buch ist ein Sammelband. Das betrifft vor allem Bücher, die es nur als E-Book gibt.</td></tr>
+            <tr><td><strong>ohne Treffer</strong></td><td>Der Normalfall für Einzelbände: Die DNB kennt das Buch, aber ohne Reihe — es gehört zu keiner. Ebenso, wenn sie es gar nicht kennt (vor allem Bücher, die es nur als E-Book gibt), wenn kein Autor eingetragen ist oder wenn es ein Sammelband ist.</td></tr>
             <tr><td><strong>nicht abrufbar</strong></td><td>Die DNB hat für dieses Buch nicht geantwortet. Eine neue Suche holt es nach.</td></tr>
             <tr><td><strong>abgebrochen</strong></td><td>Von Hand beendet — oder mit dem Zusatz <em>Die Deutsche Nationalbibliothek antwortet nicht.</em>, wenn fünf Bücher hintereinander ohne Antwort blieben. Dann später erneut versuchen.</td></tr>
           </tbody>
@@ -2148,9 +2175,9 @@
             Aus der Nationalbibliothek und aus Stapel-Einträgen kam nur die
             <em>Bandnummer</em> an, die Reihe selbst fehlte. Titel, die
             früher auf diesem Weg gespeichert wurden, haben deshalb womöglich
-            einen Band, aber keine Reihe. Bei E-Books ohne ISBN holt die
-            <a href="#reihen-ebooks">Prüfliste</a> das nach; bei allen anderen
-            hilft <em>Angaben bearbeiten</em> auf der Titelseite.
+            einen Band, aber keine Reihe. Seit Fassung 1.24.0 leert der
+            Server eine solche Bandnummer beim Start von selbst, und die
+            <a href="#reihen-ergaenzen">Prüfliste</a> sucht die Reihe dazu.
           </p>
         </div>
       </div>

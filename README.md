@@ -132,15 +132,15 @@ Im Reiter **Thalia-Sync** startest du den Abgleich von Hand oder stellst einen Z
 
 E-Books ohne ISBN landen in **Unbearbeitet** statt einfach zu verschwinden. Kennt die Deutsche Nationalbibliothek die gedruckte Ausgabe, bringen sie ihre **Reihe** gleich mit — die Karte zeigt dann etwa *Reihe: Das Rad der Zeit · Band 7*, und beim Speichern wird sie übernommen.
 
-#### Reihen für E-Books, die schon in der Bibliothek stehen
+#### Fehlende Reihen für Bücher nachtragen, die schon in der Bibliothek stehen
 
-**Import → Metadaten ergänzen**, ganz unten die Karte **Reihen für E-Books ohne ISBN** (nur für Administratoren)
+**Import → Metadaten ergänzen**, ganz unten die Karte **Fehlende Reihen ergänzen** (nur für Administratoren)
 
-1. **E-Books prüfen** klicken. Die Suche läuft auf dem Server und fragt für jedes E-Book ohne ISBN und ohne Reihe die Nationalbibliothek nach der gedruckten Ausgabe. Je nach Bestand dauert das einige Minuten; du kannst die Seite währenddessen verlassen.
+1. **Bücher prüfen** klicken. Die Suche läuft auf dem Server und fragt für jedes Buch ohne Reihe die Nationalbibliothek — **über die ISBN**, oder bei Büchern ohne ISBN (etwa E-Books aus dem Tolino-Abgleich) **über Titel und Autor**. Je nach Bestand dauert das einige Minuten; du kannst die Seite währenddessen verlassen.
 2. Die **Liste durchsehen.** Jede Zeile zeigt das E-Book, die vorgeschlagene Reihe, den Band und einen Link auf den Eintrag der Nationalbibliothek. Reihe und Band lassen sich ändern.
 3. **Anhaken, was stimmt**, und auf **„N übernehmen"** klicken. Geschrieben wird erst jetzt und nur, was angehakt ist.
 
-Sichere Vorschläge sind schon angehakt. Unsichere nicht — dann steht daneben, warum, etwa *„Titel nennt 3, die DNB Band 6."* **Sieh trotzdem kurz über alle:** Einzelne Vorschläge sind falsch, ohne dass etwas auffällt, meist Sammelausgaben wie eine „…-Box". Die Liste wird nicht gespeichert — nach einem Neustart des Servers einfach neu suchen. Alle Hinweise und was sie bedeuten: [Handbuch, Reihen für E-Books ohne ISBN](https://bl4ck969.github.io/AllMyBooks-releases/#reihen-ebooks).
+Sichere Vorschläge sind schon angehakt. Unsichere nicht — dann steht daneben, warum, etwa *„Titel nennt 3, die DNB Band 6."* **Sieh trotzdem kurz über alle:** Einzelne Vorschläge sind falsch, ohne dass etwas auffällt, meist Sammelausgaben wie eine „…-Box". Die Liste wird nicht gespeichert — nach einem Neustart des Servers einfach neu suchen. Alle Hinweise und was sie bedeuten: [Handbuch, Fehlende Reihen ergänzen](https://bl4ck969.github.io/AllMyBooks-releases/#reihen-ergaenzen).
 
 > **Dieselbe Reihe in anderer Schreibweise** — „Das Rad der Zeit" und „Rad der Zeit", „Gilde der Jäger" und „Gilde der Jaeger" — gilt beim Zuordnen als dieselbe. Es entsteht keine zweite, und eine solche lässt sich auch nicht von Hand anlegen. Nur völlig andere Namen („Hexer-Saga" statt „The Witcher") erkennt die App nicht.
 
