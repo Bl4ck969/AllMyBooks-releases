@@ -103,7 +103,7 @@
         <li data-schlagworte="markierung marker neu vermisst wunschliste ausmisten"><a href="#marker">— Die vier Markierungen</a></li>
         <li data-schlagworte="ausgabe medium exemplar isbn einband"><a href="#ausgaben">— Ausgaben eines Titels</a></li>
         <li data-schlagworte="verleih verliehen ausgeliehen rueckgabe"><a href="#verleih">— Verleihen</a></li>
-        <li data-schlagworte="reihe serie band boxset schuber zusammenstellung"><a href="#reihen-boxsets">— Reihen und Boxsets</a></li>
+        <li data-schlagworte="reihe serie band boxset schuber zusammenstellung schreibweise verlagsreihe doppelt"><a href="#reihen-boxsets">— Reihen und Boxsets</a></li>
         <li data-schlagworte="personen autoren uebersetzer wikipedia"><a href="#seite-personen">Personen</a></li>
         <li data-schlagworte="bibliografie werkverzeichnis fehlende sammler openlibrary wikidata"><a href="#person-detail">— Die Seite einer Person</a></li>
         <li data-schlagworte="kategorien genre tags schlagworte"><a href="#seite-kategorien">Kategorien und Genres</a></li>
@@ -111,6 +111,7 @@
         <li data-schlagworte="inventur bestandsaufnahme zaehlen vermisst pruefen regal"><a href="#inventur">— Die Inventur</a></li>
         <li data-schlagworte="favoriten herz merkliste"><a href="#seite-favoriten">Favoriten</a></li>
         <li data-schlagworte="import reiter csv xlsx isbn thalia manuell ki"><a href="#seite-import">Import</a></li>
+        <li data-schlagworte="reihe serie band ebook e-book tolino ohne isbn dnb pruefliste vorschlag metadaten ergaenzen"><a href="#reihen-ebooks">— Reihen für E-Books ohne ISBN</a></li>
         <li data-schlagworte="geraete kopplung handy tablet qr"><a href="#seite-geraete">Geräte</a></li>
         <li data-schlagworte="sicherungen backup wiederherstellen"><a href="#seite-sicherungen">Sicherungen</a></li>
         <li data-schlagworte="benutzer konten rollen admin passwort aendern sicherheitsfragen mein konto"><a href="#seite-benutzer">Benutzer</a></li>
@@ -661,7 +662,7 @@
 
         <div class="begriff">
           <dt>Reihe <span class="synonym">Serie</span></dt>
-          <dd>Die inhaltliche Folge eines Werks — Band 1, 2, 3. Auf der Titelseite stehen die übrigen Bände in einem eigenen Abschnitt, sodass Lücken sofort auffallen. Nicht zu verwechseln mit dem <em>Boxset</em>.</dd>
+          <dd>Die inhaltliche Folge eines Werks — Band 1, 2, 3. Auf der Titelseite stehen die übrigen Bände in einem eigenen Abschnitt, sodass Lücken sofort auffallen. Nicht zu verwechseln mit dem <em>Boxset</em> und mit der <em>Verlagsreihe</em>. Dieselbe Reihe in anderer Schreibweise erkennt die Anwendung als dieselbe — siehe <a href="#reihen-schreibweise">Dieselbe Reihe in anderer Schreibweise</a>.</dd>
         </div>
 
         <div class="begriff">
@@ -682,6 +683,11 @@
         <div class="begriff">
           <dt>Titel</dt>
           <dd>Das Werk als solches — „Der Herr der Ringe“. Ein Titel steht einmal in der Bibliothek, auch wenn Sie ihn dreimal im Regal haben; die drei Exemplare sind seine Ausgaben.</dd>
+        </div>
+
+        <div class="begriff">
+          <dt>Verlagsreihe</dt>
+          <dd>Die Nummer, unter der ein Verlag ein Buch führt — „Knaur Taschenbuch“, „dtv“ und eine Zahl dahinter. Sie sagt nichts über die Folge einer Geschichte und wird deshalb nicht als <em>Reihe</em> übernommen, auch wenn die DNB sie im selben Feld nennt. Siehe <a href="#reihen-boxsets">Reihen und Boxsets</a>.</dd>
         </div>
 
         <div class="begriff">
@@ -1076,7 +1082,7 @@
           <tbody>
             <tr>
               <td><strong>Filterleiste</strong></td>
-              <td>Suche in Titel, Originaltitel und <strong>allen beteiligten Personen</strong> — also auch Autoren, Übersetzern und Illustratoren. Gesucht wird in beiden Schreibweisen („Kai Meyer" ebenso wie „Meyer, Kai"). Dazu Sortierung, sowie Filter nach Quelle, Genre, Tags, Reihe, Lagerort, Kategorie, Autor und Lese-Status. Über <em>Mehr Filter</em> kommen weitere hinzu. Die beiden Symbole rechts filtern auf Favoriten und Merkliste.</td>
+              <td>Suche in Titel, Originaltitel, <strong>Name der Reihe</strong> und <strong>allen beteiligten Personen</strong> — also auch Autoren, Übersetzern und Illustratoren. Gesucht wird in beiden Schreibweisen („Kai Meyer" ebenso wie „Meyer, Kai"). Über die Reihe findet „Herr der Ringe“ auch „Die Gefährten“, obwohl der Reihenname im Buchtitel nicht vorkommt (seit Fassung 1.23.0, auf dem Handy auch ohne Verbindung). Dazu Sortierung, sowie Filter nach Quelle, Genre, Tags, Reihe, Lagerort, Kategorie, Autor und Lese-Status. Über <em>Mehr Filter</em> kommen weitere hinzu. Die beiden Symbole rechts filtern auf Favoriten und Merkliste.</td>
             </tr>
             <tr>
               <td><strong>Alphabet-Leiste</strong></td>
@@ -1355,6 +1361,106 @@
           </tbody>
         </table>
       </div>
+
+      <p>
+        <strong>Woher die Reihe kommt.</strong> Beim Import über eine ISBN liest
+        AllMyBooks Reihe und Bandnummer aus dem Eintrag der Deutschen
+        Nationalbibliothek. Die DNB führt dort allerdings drei verschiedene
+        Dinge, und seit Fassung 1.23.0 hält die Anwendung sie auseinander:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Was die DNB angibt</th><th>Beispiel</th><th>Was daraus wird</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Buchreihe</strong></td>
+              <td>„Das Rad der Zeit“, Band 7</td>
+              <td>Reihe „Das Rad der Zeit“, Band 7.</td>
+            </tr>
+            <tr>
+              <td><strong>Verlagsreihe</strong> — die Nummer, unter der ein Verlag das Buch führt</td>
+              <td>„Knaur Taschenbuch“, „dtv“, „Bastei-Lübbe-Taschenbuch“ mit vier- oder fünfstelliger Nummer</td>
+              <td><strong>Keine Reihe.</strong> Die Anwendung erkennt sie an der Kennzeichnung durch die DNB, nicht am Namen.</td>
+            </tr>
+            <tr>
+              <td><strong>Mehrbändiges Werk</strong> — ein Gesamttitel mit eigenen Bandtiteln</td>
+              <td>„Magische Geschichten“ mit den Bänden „Wolfsschwester“, „Sturmschwester“ …</td>
+              <td>Der Band trägt seinen eigenen Titel; das Gesamtwerk wird zur Reihe.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 id="reihen-schreibweise" style="margin-top:1.6rem">Dieselbe Reihe in anderer Schreibweise</h4>
+      <p>
+        Verschiedene Quellen schreiben dieselbe Reihe verschieden. Damit
+        daraus keine Doppelten entstehen, vergleicht AllMyBooks Reihennamen
+        beim Zuordnen <em>großzügig</em>. Diese Unterschiede spielen keine
+        Rolle:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Unterschied</th><th>Gilt als gleich</th></tr></thead>
+          <tbody>
+            <tr><td>Artikel am Anfang</td><td>„Das Rad der Zeit“ und „Rad der Zeit“</td></tr>
+            <tr><td>Umlaut oder Umschreibung</td><td>„Gilde der Jäger“ und „Gilde der Jaeger“</td></tr>
+            <tr><td>ß oder ss, Akzente</td><td>„Straße“ und „Strasse“, „Café“ und „Cafe“</td></tr>
+            <tr><td>Groß- und Kleinschreibung</td><td>„Die Stage-Dive-Reihe“ und „Die Stage-dive-Reihe“</td></tr>
+            <tr><td>Leerzeichen, Bindestriche, Klammern, Anführungszeichen, Punkt, Komma, Doppelpunkt</td><td>„Stage-Dive“ und „Stage Dive“</td></tr>
+            <tr><td>Raute am Wortanfang, Markenzeichen wie ®</td><td>„#Datendetektive“ und „Datendetektive“</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Fragezeichen und Ausrufezeichen zählen dagegen mit, denn sie
+        unterscheiden echte Reihen: „Die drei ???“ und „Die drei !!!“ bleiben
+        zwei Reihen.
+      </p>
+      <p>Das wirkt an drei Stellen:</p>
+      <ul>
+        <li>
+          <strong>Beim Import</strong> landet ein Buch in der vorhandenen
+          Reihe, auch wenn die Quelle sie anders schreibt. Es gilt Ihr Name,
+          nicht der der Quelle.
+        </li>
+        <li>
+          <strong>Im Auswahlfeld</strong> (<em>Angaben bearbeiten</em> auf
+          der Titelseite, Reiter <a href="#import-manuell">Manuell</a>) findet
+          die Eingabe
+          „Rad der Zeit“ auch „Das Rad der Zeit“. Der Knopf
+          <em>Neue Reihe „…“ anlegen</em> erscheint nur, wenn es die Reihe
+          in keiner Schreibweise gibt.
+        </li>
+        <li>
+          <strong>Beim Anlegen oder Umbenennen</strong> lehnt die Anwendung
+          einen Namen ab, den eine andere Reihe in anderer Schreibweise schon
+          trägt: <em>„Diese Reihe gibt es schon – womöglich in anderer
+          Schreibweise (mit oder ohne Artikel, Bindestrich, „ae“ statt „ä“).
+          Bitte die vorhandene Reihe auswählen.“</em> Die eigene
+          Schreibweise zu korrigieren, etwa „Rad der zeit“ in „Rad der Zeit“,
+          geht weiterhin.
+        </li>
+      </ul>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Ganz andere Namen erkennt die Anwendung nicht</span>
+          <p>
+            Heißt dieselbe Reihe bei der DNB völlig anders als bei Ihnen —
+            „Hexer-Saga“ statt „The Witcher“, „Elena-Deveraux-Serie“ statt
+            „Gilde der Jäger“ —, entsteht beim Import eine zweite Reihe. Ordnen
+            Sie den Titel dann über <em>Angaben bearbeiten</em> auf seiner
+            Titelseite Ihrer Reihe zu; die überflüssige lässt sich im selben
+            Auswahlfeld löschen.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Die Suche in der Bibliothek ist strenger als das Zuordnen: Sie findet
+        Teile des Namens ohne Rücksicht auf Groß- und Kleinschreibung,
+        „Jaeger“ findet aber nicht „Jäger“.
+      </p>
 
       <h4 id="klappentext">Den Klappentext von der Rückseite übernehmen</h4>
 
@@ -1674,6 +1780,19 @@
         <a href="#rechtliches">Rechtliches</a>.
       </p>
       <p>E-Books ohne ISBN landen in <em>Unbearbeitet</em>, statt zu verschwinden.</p>
+      <p>
+        Seit Fassung 1.23.0 bringen sie dabei ihre <strong>Reihe</strong> mit,
+        wenn die Deutsche Nationalbibliothek die gedruckte Ausgabe kennt: Die
+        Karte im Stapel zeigt dann unter dem Titel etwa
+        <em>Reihe: Das Rad der Zeit · Band 7</em>, und beim Speichern wird die
+        Reihe übernommen. Je Abgleich wird das für höchstens 20 neue E-Books
+        nachgeschlagen, damit der Abgleich nicht minutenlang auf die DNB
+        wartet. Unsichere Treffer bekommen im Stapel keinen Vorschlag, denn
+        dort prüft niemand jede Reihe einzeln. Steht das Buch erst einmal in
+        der Bibliothek, findet die Prüfliste
+        <a href="#reihen-ebooks">Reihen für E-Books ohne ISBN</a> es wieder —
+        samt dem Grund, warum der Vorschlag unsicher ist.
+      </p>
 
       <h4>Unbearbeitet — der Stapel</h4>
       <figure>
@@ -1764,6 +1883,193 @@
         einem großen Import oder nachdem Sie einen Google-Books-Schlüssel
         hinterlegt haben.
       </p>
+      <p>
+        Unter dieser Suche steht seit Fassung 1.23.0 eine zweite Karte,
+        <em>Reihen für E-Books ohne ISBN</em>, beschrieben im nächsten
+        Abschnitt.
+      </p>
+
+      <h4 id="reihen-ebooks">Reihen für E-Books ohne ISBN</h4>
+      <p>
+        E-Books aus dem <a href="#seite-import">Thalia-Sync</a> tragen oft
+        keine ISBN. Ohne sie findet die gewöhnliche Anreicherung nichts, und
+        eine Reihe kennt die Tolino-Cloud ohnehin nicht — sie steht allenfalls
+        im Titel, etwa „Engelszorn (Gilde der Jäger 2)“. Diese Prüfliste sucht
+        für jedes solche E-Book die <strong>gedruckte Ausgabe</strong> bei der
+        Deutschen Nationalbibliothek und schlägt deren Reihe und Band vor.
+      </p>
+      <p>
+        Geprüft werden alle Titel, die als E-Book vorliegen, bei keiner
+        Ausgabe eine ISBN tragen und noch keiner Reihe zugeordnet sind. Die
+        Karte steht für alle Benutzer da, benutzen können sie nur
+        <strong>Administratoren</strong> — für alle anderen bleibt sie bei
+        <em>Noch nicht gesucht</em>.
+      </p>
+
+      <ol class="schritte">
+        <li>
+          <strong>Suche starten</strong>
+          <p>
+            <em>Import → Metadaten ergänzen</em>, ganz unten die Karte
+            <em>Reihen für E-Books ohne ISBN</em>, Knopf
+            <em>E-Books prüfen</em>. Die Suche läuft auf dem Server; die Karte
+            zeigt <em>Suche läuft … 37 von 275</em> und einen Balken. Sie
+            können die Seite verlassen und später zurückkommen — oder auf
+            einem anderen Gerät nachsehen, dort erscheint derselbe Stand.
+          </p>
+        </li>
+        <li>
+          <strong>Warten</strong>
+          <p>
+            Je nach Bestand dauert das einige Minuten. Die DNB bremst nach
+            einigen hundert Anfragen; die Suche wartet dann jeweils zwanzig
+            Sekunden und fragt dasselbe Buch bis zu fünfmal erneut, statt es
+            zu überspringen.
+            <em>Abbrechen</em> beendet sie nach dem Buch, an dem sie gerade
+            ist — was bis dahin gefunden wurde, bleibt in der Liste.
+          </p>
+        </li>
+        <li>
+          <strong>Liste durchsehen</strong>
+          <p>
+            Ist die Suche fertig, steht über der Liste eine Zusammenfassung,
+            etwa <em>147 Vorschläge · 8 mehrdeutig · 119 ohne Treffer</em>.
+            Jede Zeile ist ein E-Book; was sie zeigt, steht in der Tabelle
+            unten.
+          </p>
+        </li>
+        <li>
+          <strong>Anhaken und korrigieren</strong>
+          <p>
+            Sichere Vorschläge sind schon angehakt, unsichere nicht. Reihe und
+            Band lassen sich in jeder Zeile ändern. <em>Alle anhaken</em> und
+            <em>Keine</em> setzen alle Haken auf einmal; daneben steht, wie
+            viele es gerade sind.
+          </p>
+        </li>
+        <li>
+          <strong>Übernehmen</strong>
+          <p>
+            Der Knopf am Ende heißt nach der Zahl der Haken, etwa
+            <em>135 übernehmen</em>. Erst jetzt wird geschrieben — und nur
+            für die angehakten Zeilen. Sie verschwinden danach aus der Liste;
+            die übrigen bleiben stehen, bis Sie sie übernehmen oder neu
+            suchen.
+          </p>
+        </li>
+      </ol>
+
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>In jeder Zeile</th><th>Bedeutung</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Haken, Titel, Autoren</strong></td>
+              <td>Das E-Book, wie es in Ihrer Bibliothek steht.</td>
+            </tr>
+            <tr>
+              <td><strong>Reihe</strong></td>
+              <td>Der vorgeschlagene Name. Beim Tippen schlägt das Feld Ihre vorhandenen Reihen vor. Darunter steht <em>Reihe gibt es schon</em> oder <em>wird neu angelegt</em> — eine Reihe in anderer Schreibweise zählt dabei als vorhanden (siehe <a href="#reihen-schreibweise">Dieselbe Reihe in anderer Schreibweise</a>).</td>
+            </tr>
+            <tr>
+              <td><strong>DNB: …</strong></td>
+              <td>Der Eintrag der Nationalbibliothek, aus dem der Vorschlag stammt. Ein Klick öffnet ihn in einem neuen Fenster — der schnellste Weg, einen Zweifel zu klären.</td>
+            </tr>
+            <tr>
+              <td><strong>Band</strong></td>
+              <td>Die Bandnummer. Kommazahlen sind erlaubt, etwa 2,5 für eine Kurzgeschichte zwischen zwei Bänden. Leer gelassen, wird nur die Reihe gesetzt.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Rechts in der Zeile steht, was an einem Vorschlag auffällt. Die ersten
+        drei Hinweise lassen eine Zeile <strong>unangehakt</strong>:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Hinweis</th><th>Was er bedeutet</th><th>Angehakt?</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><em>Titel nennt 3, die DNB Band 6.</em></td>
+              <td>Im Titel des E-Books steht eine andere Zahl als die Bandnummer der DNB. Oft zählt die Zahl im Titel etwas anderes — ein „3. Semester“ muss nicht Band 3 sein —, manchmal hat die DNB aber auch einen anderen Band erwischt. Der DNB-Link klärt es.</td>
+              <td>nein</td>
+            </tr>
+            <tr>
+              <td><em>Der Titel nennt mehrere Bände — bitte prüfen, ob es ein Sammelband ist.</em></td>
+              <td>Zum Titel passen zwei verschiedene Bände der Reihe: Band 1 und der Band, dessen Nummer im Titel steht. Vorgeschlagen ist der zweite; es kann aber ein Sammelband mit Vorgeschichte sein. Nennt der Titel selbst zwei Bandnummern, etwa „Band 1 und 2“, gibt es gar keinen Vorschlag.</td>
+              <td>nein</td>
+            </tr>
+            <tr>
+              <td><em>Die Ausgaben nennen verschiedene Reihen — bitte prüfen: …</em></td>
+              <td>Die gedruckten Ausgaben führen das Buch unter Reihennamen, die nichts miteinander zu tun haben, und keiner überwiegt klar. Vorgeschlagen ist der Name der neuesten Ausgabe; ein Klick auf einen der anderen setzt ihn ins Feld.</td>
+              <td>nein</td>
+            </tr>
+            <tr>
+              <td><em>Der Titel nennt deine Reihe; die DNB sagt: …</em></td>
+              <td>Der Titel des E-Books enthält den Namen einer Reihe, die es in Ihrer Bibliothek schon gibt. Dann gilt Ihr Name — die DNB-Schreibweise steht daneben und lässt sich per Klick übernehmen.</td>
+              <td>ja</td>
+            </tr>
+            <tr>
+              <td><em>Die DNB nennt sie auch: …</em></td>
+              <td>Weitere Namen derselben Reihe, ohne Widerspruch. Reine Information; ein Klick übernimmt den Namen.</td>
+              <td>ja</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kasten kasten--achtung">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Auch angehakte Vorschläge kurz ansehen</span>
+          <p>
+            An einem echten Bestand von 275 E-Books waren rund vier von hundert
+            Vorschlägen falsch, obwohl nichts an ihnen auffiel. Fast immer
+            waren es <strong>Sammelausgaben</strong>, die die DNB wie eine
+            Reihe führt — eine „…-Box“, eine Zeitungs-Edition wie
+            „Bild-am-Sonntag-Fantasy-Bibliothek“ oder eine Bilderbuch-Sammlung.
+            Das erkennt nur, wer das Buch kennt. Deshalb schreibt die
+            Anwendung nichts von selbst.
+          </p>
+        </div>
+      </div>
+
+      <p>Was in der Zusammenfassung über der Liste steht:</p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Angabe</th><th>Bedeutung</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Vorschläge</strong></td><td>E-Books, für die eine Reihe gefunden wurde — sie stehen in der Liste.</td></tr>
+            <tr><td><strong>mehrdeutig</strong></td><td>Die passenden Einträge der DNB nennen verschiedene Bandnummern, und der Titel entscheidet nicht, welcher gemeint ist. Dann gibt es keinen Vorschlag — lieber keiner als ein geratener.</td></tr>
+            <tr><td><strong>ohne Treffer</strong></td><td>Keine gedruckte Ausgabe gefunden, keine passende mit Reihe, oder das Buch ist ein Sammelband. Das betrifft vor allem Bücher, die es nur als E-Book gibt.</td></tr>
+            <tr><td><strong>nicht abrufbar</strong></td><td>Die DNB hat für dieses Buch nicht geantwortet. Eine neue Suche holt es nach.</td></tr>
+            <tr><td><strong>abgebrochen</strong></td><td>Von Hand beendet — oder mit dem Zusatz <em>Die Deutsche Nationalbibliothek antwortet nicht.</em>, wenn fünf Bücher hintereinander ohne Antwort blieben. Dann später erneut versuchen.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Die Liste lebt nur bis zum nächsten Neustart des Servers</span>
+          <p>
+            Sie wird nicht gespeichert. Startet der Server neu — etwa nach
+            einem Update —, ist sie leer, und <em>Erneut suchen</em> erzeugt
+            sie wieder. Verloren geht dabei nichts: Was Sie schon übernommen
+            haben, steht in der Bibliothek, und diese Titel tauchen in der
+            Liste nicht mehr auf.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Hat jemand einem Titel zwischen Suche und Übernehmen schon von Hand
+        eine Reihe gegeben, gewinnt diese Wahl. Die Meldung nach dem
+        Übernehmen nennt solche Fälle: <em>… Reihen übernommen,
+        2 übersprungen (inzwischen schon zugeordnet).</em>
+      </p>
 
       <h4>Genre-Anreicherung und Personen-Anreicherung</h4>
       <p>
@@ -1798,11 +2104,56 @@
         </div>
       </div>
 
-      <h4>Manuell</h4>
+      <h4 id="import-manuell">Manuell</h4>
       <figure>
         <img src="bilder/25-import-manuell.webp" alt="Der Reiter Manuell mit einem leeren Formular für einen neuen Titel" width="1440" height="900" loading="lazy" decoding="async">
         <figcaption><b>Von Hand.</b> Für alles, was keine Quelle findet — alte Ausgaben, Selbstverlag, Vereinschroniken.</figcaption>
       </figure>
+      <p>
+        Derselbe Reiter öffnet sich auch hinter dem Knopf <em>Bearbeiten</em>
+        eines Stapel-Eintrags, dann schon mit dessen Angaben gefüllt.
+      </p>
+      <p>
+        <strong>Reihe und Band.</strong> Seit Fassung 1.23.0 hat das Formular
+        dafür dasselbe Auswahlfeld wie <em>Angaben bearbeiten</em> auf der
+        Titelseite: tippen, aus den vorhandenen Reihen wählen oder eine neue
+        anlegen. Eine vorhandene Reihe wird auch in anderer Schreibweise
+        gefunden. Die <em>Bandnummer</em> lässt sich erst eintragen, wenn eine
+        Reihe gewählt ist — ein Band ohne Reihe hätte keine Reihenfolge.
+      </p>
+      <p>
+        Bringt der Stapel-Eintrag oder die Suche in der Nationalbibliothek eine
+        Reihe mit, ist das Feld schon vorbelegt. Was dann darunter steht:
+      </p>
+      <div class="tabellenrahmen">
+        <table>
+          <thead><tr><th>Zeile unter dem Feld</th><th>Bedeutung</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><em>Aus dem Eintrag: „Rad der Zeit“ – als „Das Rad der Zeit“ zugeordnet.</em></td>
+              <td>Die Reihe gibt es schon, nur anders geschrieben. Der Titel kommt in Ihre vorhandene Reihe, unter Ihrem Namen.</td>
+            </tr>
+            <tr>
+              <td><em>Neue Reihe „Kingston University“ – wird beim Speichern angelegt.</em></td>
+              <td>Die Reihe gibt es noch nicht. Angelegt wird sie erst beim Speichern, nicht schon beim Öffnen des Formulars. <em>Nicht übernehmen</em> verwirft den Vorschlag samt Bandnummer.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kasten kasten--hinweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span class="kasten__titel">Vor Fassung 1.23.0 ging hier die Reihe verloren</span>
+          <p>
+            Aus der Nationalbibliothek und aus Stapel-Einträgen kam nur die
+            <em>Bandnummer</em> an, die Reihe selbst fehlte. Titel, die
+            früher auf diesem Weg gespeichert wurden, haben deshalb womöglich
+            einen Band, aber keine Reihe. Bei E-Books ohne ISBN holt die
+            <a href="#reihen-ebooks">Prüfliste</a> das nach; bei allen anderen
+            hilft <em>Angaben bearbeiten</em> auf der Titelseite.
+          </p>
+        </div>
+      </div>
 
       <h3 id="seite-geraete">Geräte</h3>
 
