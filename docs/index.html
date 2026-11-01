@@ -108,7 +108,7 @@
         <li data-schlagworte="bibliografie werkverzeichnis fehlende sammler openlibrary wikidata"><a href="#person-detail">— Die Seite einer Person</a></li>
         <li data-schlagworte="kategorien genre tags schlagworte"><a href="#seite-kategorien">Kategorien und Genres</a></li>
         <li data-schlagworte="lagerorte regale standorte quellen"><a href="#seite-lagerorte">Lagerorte</a></li>
-        <li data-schlagworte="inventur bestandsaufnahme zaehlen vermisst pruefen regal"><a href="#inventur">— Die Inventur</a></li>
+        <li data-schlagworte="inventur bestandsaufnahme zaehlen vermisst pruefen regal ordnen autor genre umraeumen umräumen"><a href="#inventur">— Die Inventur</a></li>
         <li data-schlagworte="favoriten herz merkliste"><a href="#seite-favoriten">Favoriten</a></li>
         <li data-schlagworte="import reiter csv xlsx isbn thalia manuell ki"><a href="#seite-import">Import</a></li>
         <li data-schlagworte="reihe serie band fehlende ergaenzen nachtragen isbn ebook e-book tolino dnb pruefliste vorschlag metadaten"><a href="#reihen-ergaenzen">— Fehlende Reihen ergänzen</a></li>
@@ -1104,6 +1104,14 @@
         <strong>Zwischenüberschriften</strong> — ein Autorenname, darunter seine
         Werke alphabetisch, dann der nächste Name.
       </p>
+      <p>
+        Sortiert wird nach dem <strong>Nachnamen</strong>, so wie im Regal. Seit
+        Fassung 1.27.2 stehen die Überschriften deshalb auch in der Form
+        „Nachname, Vorname“ da, etwa „King, Stephen“. Einige Autoren, deren Name
+        früher in dieser Form gespeichert war, standen vorher unter dem
+        Vornamen; der Server berichtigt das beim ersten Start nach dem Update
+        von selbst.
+      </p>
 
       <div class="kasten kasten--hinweis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -1668,7 +1676,10 @@
             Zu jedem Titel entscheiden Sie: <strong>vorhanden</strong> oder
             <strong>fehlt</strong>. Der Zähler oben zählt beides mit. Sie können
             zwischendurch den Lagerort wechseln — bereits bearbeitete Regale
-            bleiben gemerkt, die Inventur läuft weiter.
+            bleiben gemerkt, die Inventur läuft weiter. Auch wenn Sie die Seite
+            verlassen, ein Buch öffnen oder die App schließen, bleibt der Stand
+            auf dem Gerät gesichert; beim Zurückkommen geht es dort weiter, wo
+            Sie waren.
           </p>
         </li>
         <li>
@@ -1708,6 +1719,41 @@
           </p>
         </div>
       </div>
+
+      <h4 id="inventur-ordnen">Ordnen wie im Regal</h4>
+
+      <p>
+        Über der Liste eines Lagerorts wählen Sie unter <strong>Ordnen nach</strong>,
+        in welcher Folge die Bücher erscheinen: nach <strong>Titel</strong>,
+        nach <strong>Autor</strong> oder nach <strong>Genre, dann Autor</strong>.
+        Bei „Autor“ stehen die Bücher unter Zwischenüberschriften wie
+        „King, Stephen“, bei „Genre, dann Autor“ unter dem Genre und darin nach
+        Autor. So gehen Sie die Liste in derselben Reihenfolge durch, in der die
+        Bücher im Regal stehen.
+      </p>
+      <p>
+        Jedes Buch steht dabei genau einmal da: unter seinem ersten Autor und
+        seinem ersten Genre. Die Wahl merkt sich das Gerät, und sie gilt auch
+        außerhalb der Inventur.
+      </p>
+
+      <h4 id="inventur-umraeumen">Umräumen während der Inventur</h4>
+
+      <p>
+        Steht ein Buch eigentlich woanders, öffnen Sie es mit einem
+        <strong>Doppelklick</strong> oder über den Knopf mit den
+        <strong>zwei Pfeilen</strong> in seiner Zeile (auf dem Handy der einzige
+        Weg). Im Fenster <strong>Umräumen</strong> ändern Sie den Lagerort jeder
+        Ausgabe, ohne die Inventur zu verlassen. Ein Buch, das an einen anderen
+        Ort kommt, verschwindet aus der Liste — und wird beim Beenden nicht als
+        fehlend markiert.
+      </p>
+      <p>
+        Beim Beenden prüft die Anwendung außerdem jede Markierung „fehlt“
+        gegen den aktuellen Inhalt ihres Lagerorts. Wurde ein Buch inzwischen
+        umgeräumt, gilt es nicht als fehlend; die Meldung nach dem Beenden nennt,
+        wie viele das waren.
+      </p>
 
       <h4 id="inventur-wiedergefunden">Wiedergefundene Bücher</h4>
 
